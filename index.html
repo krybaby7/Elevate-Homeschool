@@ -155,14 +155,19 @@
                     // Update hero background
                     if (heroData.background) {
                         const root = document.documentElement;
-                        if (heroData.background.image) {
+                        if (heroData.background.image && heroData.background.image.trim() !== '') {
                             root.style.setProperty('--hero-bg-image', `url('${heroData.background.image}')`);
+                            // Only apply overlay if there's an image and overlay_opacity is specified
+                            if (heroData.background.overlay_opacity !== undefined) {
+                                root.style.setProperty('--hero-overlay-opacity', heroData.background.overlay_opacity);
+                            }
+                        } else {
+                            // No image - remove any background image and set overlay to 0
+                            root.style.setProperty('--hero-bg-image', 'none');
+                            root.style.setProperty('--hero-overlay-opacity', '0');
                         }
                         if (heroData.background.color) {
                             root.style.setProperty('--hero-bg-color', heroData.background.color);
-                        }
-                        if (heroData.background.overlay_opacity !== undefined) {
-                            root.style.setProperty('--hero-overlay-opacity', heroData.background.overlay_opacity);
                         }
                     }
                 }

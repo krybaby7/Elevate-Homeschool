@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Visual Editor - Elevate Website</title>
+    <link rel="stylesheet" href="editor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="editor-container">
+        <!-- Header -->
+        <header class="editor-header">
+            <div class="header-left">
+                <h1><i class="fas fa-palette"></i> Visual Editor</h1>
+                <span class="site-name">Elevate Website</span>
+            </div>
+            <div class="header-right">
+                <button class="btn-secondary" id="resetBtn">
+                    <i class="fas fa-undo"></i> Reset
+                </button>
+                <button class="btn-primary" id="saveBtn">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Editor -->
+        <div class="editor-main">
+            <!-- Controls Panel -->
+            <aside class="controls-panel">
+                <div class="controls-header">
+                    <h2>Design Controls</h2>
+                </div>
+                
+                <div class="controls-content">
+                    <!-- Quick Themes -->
+                    <div class="control-section">
+                        <h3><i class="fas fa-magic"></i> Quick Themes</h3>
+                        <div class="theme-grid">
+                            <div class="theme-card" data-theme="professional">
+                                <div class="theme-preview">
+                                    <div class="theme-color" style="background: #2B5A9C;"></div>
+                                    <div class="theme-color" style="background: #8FBC8F;"></div>
+                                    <div class="theme-color" style="background: #D4A574;"></div>
+                                </div>
+                                <span>Professional</span>
+                            </div>
+                            <div class="theme-card" data-theme="warm">
+                                <div class="theme-preview">
+                                    <div class="theme-color" style="background: #E67E22;"></div>
+                                    <div class="theme-color" style="background: #F39C12;"></div>
+                                    <div class="theme-color" style="background: #E74C3C;"></div>
+                                </div>
+                                <span>Warm</span>
+                            </div>
+                            <div class="theme-card" data-theme="modern">
+                                <div class="theme-preview">
+                                    <div class="theme-color" style="background: #2C3E50;"></div>
+                                    <div class="theme-color" style="background: #34495E;"></div>
+                                    <div class="theme-color" style="background: #95A5A6;"></div>
+                                </div>
+                                <span>Modern</span>
+                            </div>
+                            <div class="theme-card" data-theme="vibrant">
+                                <div class="theme-preview">
+                                    <div class="theme-color" style="background: #9B59B6;"></div>
+                                    <div class="theme-color" style="background: #3498DB;"></div>
+                                    <div class="theme-color" style="background: #1ABC9C;"></div>
+                                </div>
+                                <span>Vibrant</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colors -->
+                    <div class="control-section">
+                        <h3><i class="fas fa-palette"></i> Colors</h3>
+                        <div class="control-group">
+                            <label for="primaryColor">Primary Color</label>
+                            <div class="color-input-group">
+                                <input type="color" id="primaryColor" value="#2B5A9C">
+                                <input type="text" id="primaryColorText" value="#2B5A9C">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="secondaryColor">Secondary Color</label>
+                            <div class="color-input-group">
+                                <input type="color" id="secondaryColor" value="#8FBC8F">
+                                <input type="text" id="secondaryColorText" value="#8FBC8F">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="accentColor">Accent Color</label>
+                            <div class="color-input-group">
+                                <input type="color" id="accentColor" value="#D4A574">
+                                <input type="text" id="accentColorText" value="#D4A574">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="backgroundColor">Background Color</label>
+                            <div class="color-input-group">
+                                <input type="color" id="backgroundColor" value="#FAFAFA">
+                                <input type="text" id="backgroundColorText" value="#FAFAFA">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Typography -->
+                    <div class="control-section">
+                        <h3><i class="fas fa-font"></i> Typography</h3>
+                        <div class="control-group">
+                            <label for="fontFamily">Font Family</label>
+                            <select id="fontFamily">
+                                <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI (Current)</option>
+                                <option value="'Inter', sans-serif">Inter</option>
+                                <option value="'Roboto', sans-serif">Roboto</option>
+                                <option value="'Open Sans', sans-serif">Open Sans</option>
+                                <option value="'Lato', sans-serif">Lato</option>
+                                <option value="'Poppins', sans-serif">Poppins</option>
+                                <option value="'Montserrat', sans-serif">Montserrat</option>
+                                <option value="'Nunito', sans-serif">Nunito</option>
+                                <option value="'Source Sans Pro', sans-serif">Source Sans Pro</option>
+                                <option value="'Playfair Display', serif">Playfair Display</option>
+                                <option value="'Merriweather', serif">Merriweather</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="heroFontSize">Hero Title Size</label>
+                            <div class="slider-group">
+                                <input type="range" id="heroFontSize" min="2" max="5" step="0.1" value="3.2">
+                                <span class="slider-value">3.2rem</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="headingFontSize">Section Headings Size</label>
+                            <div class="slider-group">
+                                <input type="range" id="headingFontSize" min="1.5" max="3.5" step="0.1" value="2.5">
+                                <span class="slider-value">2.5rem</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="bodyFontSize">Body Text Size</label>
+                            <div class="slider-group">
+                                <input type="range" id="bodyFontSize" min="0.8" max="1.4" step="0.05" value="1">
+                                <span class="slider-value">1rem</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Layout & Spacing -->
+                    <div class="control-section">
+                        <h3><i class="fas fa-expand-arrows-alt"></i> Layout & Spacing</h3>
+                        <div class="control-group">
+                            <label for="containerWidth">Container Width</label>
+                            <div class="slider-group">
+                                <input type="range" id="containerWidth" min="1000" max="1400" step="50" value="1200">
+                                <span class="slider-value">1200px</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="sectionPadding">Section Padding</label>
+                            <div class="slider-group">
+                                <input type="range" id="sectionPadding" min="40" max="120" step="10" value="80">
+                                <span class="slider-value">80px</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="cardBorderRadius">Card Border Radius</label>
+                            <div class="slider-group">
+                                <input type="range" id="cardBorderRadius" min="0" max="30" step="1" value="15">
+                                <span class="slider-value">15px</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="buttonBorderRadius">Button Border Radius</label>
+                            <div class="slider-group">
+                                <input type="range" id="buttonBorderRadius" min="0" max="50" step="1" value="30">
+                                <span class="slider-value">30px</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Effects -->
+                    <div class="control-section">
+                        <h3><i class="fas fa-magic"></i> Visual Effects</h3>
+                        <div class="control-group">
+                            <label for="cardShadow">Card Shadow Intensity</label>
+                            <div class="slider-group">
+                                <input type="range" id="cardShadow" min="0" max="30" step="1" value="20">
+                                <span class="slider-value">20px</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="hoverEffect">Hover Effect Strength</label>
+                            <div class="slider-group">
+                                <input type="range" id="hoverEffect" min="0" max="10" step="1" value="5">
+                                <span class="slider-value">5px</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>
+                                <input type="checkbox" id="animationsEnabled" checked>
+                                Enable Animations
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Background Images -->
+                    <div class="control-section">
+                        <h3><i class="fas fa-image"></i> Section Backgrounds</h3>
+                        <div class="control-group">
+                            <label for="heroOverlay">Hero Overlay Opacity</label>
+                            <div class="slider-group">
+                                <input type="range" id="heroOverlay" min="0" max="0.7" step="0.1" value="0.3">
+                                <span class="slider-value">0.3</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="advantagesOverlay">Advantages Overlay Opacity</label>
+                            <div class="slider-group">
+                                <input type="range" id="advantagesOverlay" min="0" max="0.7" step="0.1" value="0">
+                                <span class="slider-value">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Preview Panel -->
+            <main class="preview-panel">
+                <div class="preview-header">
+                    <h2><i class="fas fa-eye"></i> Live Preview</h2>
+                    <div class="device-controls">
+                        <button class="device-btn active" data-device="desktop">
+                            <i class="fas fa-desktop"></i>
+                        </button>
+                        <button class="device-btn" data-device="tablet">
+                            <i class="fas fa-tablet-alt"></i>
+                        </button>
+                        <button class="device-btn" data-device="mobile">
+                            <i class="fas fa-mobile-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="preview-content">
+                    <iframe id="previewFrame" src="../index.html"></iframe>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="controls/ColorControl.js"></script>
+    <script src="controls/FontControl.js"></script>
+    <script src="controls/SpacingControl.js"></script>
+    <script src="controls/EffectsControl.js"></script>
+    <script src="presets/themes.js"></script>
+    <script src="editor.js"></script>
+</body>
+</html>
