@@ -8,6 +8,6 @@ subtitle: Do you want to homeschool your child but feel uncertain about managing
 cta_text: Discover How
 cta_link: "#programs"
 background:
-  image: /assets/images/test.webp
+  image: ""
   color: "#F5E6D3"
-  overlay_opacity: "0"
+  overlay_opacity: "0.7"
