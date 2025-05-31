@@ -10,4 +10,4 @@ cta_link: "#programs"
 background:
   image: /assets/images/test.webp
   color: "#F5E6D3"
-  overlay_opacity: "0.1"
+  overlay_opacity: "0"
