@@ -26,80 +26,6 @@
     --registration-bg-image: none;
     --registration-bg-color: #E8E6E3;
     --registration-overlay-opacity: 0.3;
-    
-    /* Hero Text Variables */
-    --hero-title-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --hero-title-font-size: 3.2rem;
-    --hero-title-font-weight: 700;
-    --hero-title-color: #2B5A9C;
-    --hero-title-text-align: left;
-    
-    --hero-subtitle-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --hero-subtitle-font-size: 1.2rem;
-    --hero-subtitle-font-weight: 400;
-    --hero-subtitle-color: #1a4480;
-    --hero-subtitle-text-align: left;
-    
-    --hero-cta-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --hero-cta-font-size: 1.1rem;
-    --hero-cta-font-weight: 600;
-    --hero-cta-color: #FAFAFA;
-    
-    /* Advantages Text Variables */
-    --advantages-section-title-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --advantages-section-title-font-size: 2.5rem;
-    --advantages-section-title-font-weight: 400;
-    --advantages-section-title-color: #2B5A9C;
-    --advantages-section-title-text-align: center;
-    
-    --advantages-card-title-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --advantages-card-title-font-size: 1.3rem;
-    --advantages-card-title-font-weight: 400;
-    --advantages-card-title-color: #2B5A9C;
-    --advantages-card-title-text-align: left;
-    
-    --advantages-card-text-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --advantages-card-text-font-size: 1rem;
-    --advantages-card-text-font-weight: 400;
-    --advantages-card-text-color: #5a5a5a;
-    --advantages-card-text-text-align: left;
-    
-    /* Programs Text Variables */
-    --programs-section-title-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --programs-section-title-font-size: 2.5rem;
-    --programs-section-title-font-weight: 400;
-    --programs-section-title-color: #2B5A9C;
-    --programs-section-title-text-align: center;
-    
-    --programs-program-title-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --programs-program-title-font-size: 1.6rem;
-    --programs-program-title-font-weight: 600;
-    --programs-program-title-color: #8FBC8F;
-    --programs-program-title-text-align: left;
-    
-    --programs-description-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --programs-description-font-size: 1rem;
-    --programs-description-font-weight: 400;
-    --programs-description-color: #5a5a5a;
-    --programs-description-text-align: left;
-    
-    /* Registration Text Variables */
-    --registration-title-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --registration-title-font-size: 2.5rem;
-    --registration-title-font-weight: 400;
-    --registration-title-color: #2B5A9C;
-    --registration-title-text-align: center;
-    
-    --registration-subtitle-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --registration-subtitle-font-size: 1.2rem;
-    --registration-subtitle-font-weight: 400;
-    --registration-subtitle-color: #1a4480;
-    --registration-subtitle-text-align: center;
-    
-    --registration-button-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --registration-button-font-size: 1.2rem;
-    --registration-button-font-weight: 600;
-    --registration-button-color: #2B5A9C;
 }
 
 * {
@@ -191,21 +117,16 @@ nav {
 }
 
 .hero h1 {
-    font-family: var(--hero-title-font-family);
-    font-size: var(--hero-title-font-size);
-    color: var(--hero-title-color);
-    font-weight: var(--hero-title-font-weight);
-    text-align: var(--hero-title-text-align);
+    font-size: 3.2rem;
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
+    font-weight: 700;
     max-width: 900px;
 }
 
 .hero .subtitle {
-    font-family: var(--hero-subtitle-font-family);
-    font-size: var(--hero-subtitle-font-size);
-    color: var(--hero-subtitle-color);
-    font-weight: var(--hero-subtitle-font-weight);
-    text-align: var(--hero-subtitle-text-align);
+    font-size: 1.2rem;
+    color: #1a4480;
     margin-bottom: 2rem;
     max-width: 800px;
     line-height: 1.7;
@@ -213,13 +134,12 @@ nav {
 
 .hero-cta {
     background: var(--secondary-color);
-    color: var(--hero-cta-color);
-    font-family: var(--hero-cta-font-family);
-    font-size: var(--hero-cta-font-size);
-    font-weight: var(--hero-cta-font-weight);
+    color: var(--background-color);
     padding: 1rem 2.5rem;
     border: none;
     border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
     text-decoration: none;
@@ -260,11 +180,9 @@ nav {
 }
 
 .advantage h2 {
-    font-family: var(--advantages-section-title-font-family);
-    font-size: var(--advantages-section-title-font-size);
-    color: var(--advantages-section-title-color);
-    font-weight: var(--advantages-section-title-font-weight);
-    text-align: var(--advantages-section-title-text-align);
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
     margin-bottom: 3rem;
 }
 
@@ -297,20 +215,13 @@ nav {
 }
 
 .advantage-card h3 {
-    font-family: var(--advantages-card-title-font-family);
-    font-size: var(--advantages-card-title-font-size);
-    color: var(--advantages-card-title-color);
-    font-weight: var(--advantages-card-title-font-weight);
-    text-align: var(--advantages-card-title-text-align);
+    color: var(--primary-color);
     margin-bottom: 0.8rem;
+    font-size: 1.3rem;
 }
 
 .advantage-card p {
-    font-family: var(--advantages-card-text-font-family);
-    font-size: var(--advantages-card-text-font-size);
-    color: var(--advantages-card-text-color);
-    font-weight: var(--advantages-card-text-font-weight);
-    text-align: var(--advantages-card-text-text-align);
+    color: var(--text-gray);
     line-height: 1.6;
 }
 
@@ -342,11 +253,9 @@ nav {
 }
 
 .programs h2 {
-    font-family: var(--programs-section-title-font-family);
-    font-size: var(--programs-section-title-font-size);
-    color: var(--programs-section-title-color);
-    font-weight: var(--programs-section-title-font-weight);
-    text-align: var(--programs-section-title-text-align);
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
     margin-bottom: 3rem;
 }
 
@@ -370,20 +279,13 @@ nav {
 }
 
 .program-card h3 {
-    font-family: var(--programs-program-title-font-family);
-    font-size: var(--programs-program-title-font-size);
-    color: var(--programs-program-title-color);
-    font-weight: var(--programs-program-title-font-weight);
-    text-align: var(--programs-program-title-text-align);
+    color: var(--secondary-color);
     margin-bottom: 1rem;
+    font-size: 1.6rem;
 }
 
 .program-card .description {
-    font-family: var(--programs-description-font-family);
-    font-size: var(--programs-description-font-size);
-    color: var(--programs-description-color);
-    font-weight: var(--programs-description-font-weight);
-    text-align: var(--programs-description-text-align);
+    color: var(--text-gray);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -492,20 +394,16 @@ nav {
 }
 
 .registration h2 {
-    font-family: var(--registration-title-font-family);
-    font-size: var(--registration-title-font-size);
-    color: var(--registration-title-color);
-    font-weight: var(--registration-title-font-weight);
-    text-align: var(--registration-title-text-align);
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
 .registration .subtitle {
-    font-family: var(--registration-subtitle-font-family);
-    font-size: var(--registration-subtitle-font-size);
-    color: var(--registration-subtitle-color);
-    font-weight: var(--registration-subtitle-font-weight);
-    text-align: var(--registration-subtitle-text-align);
+    text-align: center;
+    font-size: 1.2rem;
+    color: #1a4480;
     margin-bottom: 3rem;
     max-width: 800px;
     margin-left: auto;
@@ -550,13 +448,12 @@ nav {
 
 .submit-btn {
     background: var(--light-accent);
-    color: var(--registration-button-color);
-    font-family: var(--registration-button-font-family);
-    font-size: var(--registration-button-font-size);
-    font-weight: var(--registration-button-font-weight);
+    color: var(--primary-color);
     padding: 1rem 2rem;
     border: none;
     border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
     cursor: pointer;
     width: 100%;
     transition: all 0.3s;
