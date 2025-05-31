@@ -165,6 +165,40 @@
                             root.style.setProperty('--hero-overlay-opacity', heroData.background.overlay_opacity);
                         }
                     }
+                    
+                    // Update hero text styling
+                    if (heroData.text_settings) {
+                        const root = document.documentElement;
+                        
+                        // Title styling
+                        if (heroData.text_settings.title_style) {
+                            const ts = heroData.text_settings.title_style;
+                            if (ts.font_family) root.style.setProperty('--hero-title-font-family', ts.font_family);
+                            if (ts.font_size) root.style.setProperty('--hero-title-font-size', ts.font_size);
+                            if (ts.font_weight) root.style.setProperty('--hero-title-font-weight', ts.font_weight);
+                            if (ts.color) root.style.setProperty('--hero-title-color', ts.color);
+                            if (ts.text_align) root.style.setProperty('--hero-title-text-align', ts.text_align);
+                        }
+                        
+                        // Subtitle styling
+                        if (heroData.text_settings.subtitle_style) {
+                            const ss = heroData.text_settings.subtitle_style;
+                            if (ss.font_family) root.style.setProperty('--hero-subtitle-font-family', ss.font_family);
+                            if (ss.font_size) root.style.setProperty('--hero-subtitle-font-size', ss.font_size);
+                            if (ss.font_weight) root.style.setProperty('--hero-subtitle-font-weight', ss.font_weight);
+                            if (ss.color) root.style.setProperty('--hero-subtitle-color', ss.color);
+                            if (ss.text_align) root.style.setProperty('--hero-subtitle-text-align', ss.text_align);
+                        }
+                        
+                        // CTA button styling
+                        if (heroData.text_settings.cta_style) {
+                            const cs = heroData.text_settings.cta_style;
+                            if (cs.font_family) root.style.setProperty('--hero-cta-font-family', cs.font_family);
+                            if (cs.font_size) root.style.setProperty('--hero-cta-font-size', cs.font_size);
+                            if (cs.font_weight) root.style.setProperty('--hero-cta-font-weight', cs.font_weight);
+                            if (cs.color) root.style.setProperty('--hero-cta-color', cs.color);
+                        }
+                    }
                 }
 
                 // Update advantages section
@@ -182,6 +216,41 @@
                         }
                         if (advantagesData.background.overlay_opacity !== undefined) {
                             root.style.setProperty('--advantages-overlay-opacity', advantagesData.background.overlay_opacity);
+                        }
+                    }
+                    
+                    // Update advantages text styling
+                    if (advantagesData.text_settings) {
+                        const root = document.documentElement;
+                        
+                        // Section title styling
+                        if (advantagesData.text_settings.section_title_style) {
+                            const sts = advantagesData.text_settings.section_title_style;
+                            if (sts.font_family) root.style.setProperty('--advantages-section-title-font-family', sts.font_family);
+                            if (sts.font_size) root.style.setProperty('--advantages-section-title-font-size', sts.font_size);
+                            if (sts.font_weight) root.style.setProperty('--advantages-section-title-font-weight', sts.font_weight);
+                            if (sts.color) root.style.setProperty('--advantages-section-title-color', sts.color);
+                            if (sts.text_align) root.style.setProperty('--advantages-section-title-text-align', sts.text_align);
+                        }
+                        
+                        // Card title styling
+                        if (advantagesData.text_settings.card_title_style) {
+                            const cts = advantagesData.text_settings.card_title_style;
+                            if (cts.font_family) root.style.setProperty('--advantages-card-title-font-family', cts.font_family);
+                            if (cts.font_size) root.style.setProperty('--advantages-card-title-font-size', cts.font_size);
+                            if (cts.font_weight) root.style.setProperty('--advantages-card-title-font-weight', cts.font_weight);
+                            if (cts.color) root.style.setProperty('--advantages-card-title-color', cts.color);
+                            if (cts.text_align) root.style.setProperty('--advantages-card-title-text-align', cts.text_align);
+                        }
+                        
+                        // Card text styling
+                        if (advantagesData.text_settings.card_text_style) {
+                            const ctxs = advantagesData.text_settings.card_text_style;
+                            if (ctxs.font_family) root.style.setProperty('--advantages-card-text-font-family', ctxs.font_family);
+                            if (ctxs.font_size) root.style.setProperty('--advantages-card-text-font-size', ctxs.font_size);
+                            if (ctxs.font_weight) root.style.setProperty('--advantages-card-text-font-weight', ctxs.font_weight);
+                            if (ctxs.color) root.style.setProperty('--advantages-card-text-color', ctxs.color);
+                            if (ctxs.text_align) root.style.setProperty('--advantages-card-text-text-align', ctxs.text_align);
                         }
                     }
                     
@@ -217,6 +286,41 @@
                         }
                         if (programData.background.overlay_opacity !== undefined) {
                             root.style.setProperty('--programs-overlay-opacity', programData.background.overlay_opacity);
+                        }
+                    }
+                    
+                    // Update programs text styling
+                    if (programData.text_settings) {
+                        const root = document.documentElement;
+                        
+                        // Section title styling
+                        if (programData.text_settings.section_title_style) {
+                            const sts = programData.text_settings.section_title_style;
+                            if (sts.font_family) root.style.setProperty('--programs-section-title-font-family', sts.font_family);
+                            if (sts.font_size) root.style.setProperty('--programs-section-title-font-size', sts.font_size);
+                            if (sts.font_weight) root.style.setProperty('--programs-section-title-font-weight', sts.font_weight);
+                            if (sts.color) root.style.setProperty('--programs-section-title-color', sts.color);
+                            if (sts.text_align) root.style.setProperty('--programs-section-title-text-align', sts.text_align);
+                        }
+                        
+                        // Program title styling
+                        if (programData.text_settings.program_title_style) {
+                            const pts = programData.text_settings.program_title_style;
+                            if (pts.font_family) root.style.setProperty('--programs-program-title-font-family', pts.font_family);
+                            if (pts.font_size) root.style.setProperty('--programs-program-title-font-size', pts.font_size);
+                            if (pts.font_weight) root.style.setProperty('--programs-program-title-font-weight', pts.font_weight);
+                            if (pts.color) root.style.setProperty('--programs-program-title-color', pts.color);
+                            if (pts.text_align) root.style.setProperty('--programs-program-title-text-align', pts.text_align);
+                        }
+                        
+                        // Description styling
+                        if (programData.text_settings.description_style) {
+                            const ds = programData.text_settings.description_style;
+                            if (ds.font_family) root.style.setProperty('--programs-description-font-family', ds.font_family);
+                            if (ds.font_size) root.style.setProperty('--programs-description-font-size', ds.font_size);
+                            if (ds.font_weight) root.style.setProperty('--programs-description-font-weight', ds.font_weight);
+                            if (ds.color) root.style.setProperty('--programs-description-color', ds.color);
+                            if (ds.text_align) root.style.setProperty('--programs-description-text-align', ds.text_align);
                         }
                     }
                     
@@ -263,6 +367,40 @@
                         }
                         if (registrationData.background.overlay_opacity !== undefined) {
                             root.style.setProperty('--registration-overlay-opacity', registrationData.background.overlay_opacity);
+                        }
+                    }
+                    
+                    // Update registration text styling
+                    if (registrationData.text_settings) {
+                        const root = document.documentElement;
+                        
+                        // Title styling
+                        if (registrationData.text_settings.title_style) {
+                            const ts = registrationData.text_settings.title_style;
+                            if (ts.font_family) root.style.setProperty('--registration-title-font-family', ts.font_family);
+                            if (ts.font_size) root.style.setProperty('--registration-title-font-size', ts.font_size);
+                            if (ts.font_weight) root.style.setProperty('--registration-title-font-weight', ts.font_weight);
+                            if (ts.color) root.style.setProperty('--registration-title-color', ts.color);
+                            if (ts.text_align) root.style.setProperty('--registration-title-text-align', ts.text_align);
+                        }
+                        
+                        // Subtitle styling
+                        if (registrationData.text_settings.subtitle_style) {
+                            const ss = registrationData.text_settings.subtitle_style;
+                            if (ss.font_family) root.style.setProperty('--registration-subtitle-font-family', ss.font_family);
+                            if (ss.font_size) root.style.setProperty('--registration-subtitle-font-size', ss.font_size);
+                            if (ss.font_weight) root.style.setProperty('--registration-subtitle-font-weight', ss.font_weight);
+                            if (ss.color) root.style.setProperty('--registration-subtitle-color', ss.color);
+                            if (ss.text_align) root.style.setProperty('--registration-subtitle-text-align', ss.text_align);
+                        }
+                        
+                        // Button styling
+                        if (registrationData.text_settings.button_style) {
+                            const bs = registrationData.text_settings.button_style;
+                            if (bs.font_family) root.style.setProperty('--registration-button-font-family', bs.font_family);
+                            if (bs.font_size) root.style.setProperty('--registration-button-font-size', bs.font_size);
+                            if (bs.font_weight) root.style.setProperty('--registration-button-font-weight', bs.font_weight);
+                            if (bs.color) root.style.setProperty('--registration-button-color', bs.color);
                         }
                     }
                     
