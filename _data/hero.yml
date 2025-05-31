@@ -10,4 +10,4 @@ cta_link: "#programs"
 background:
   image: ""
   color: "#F5E6D3"
-  overlay_opacity: "0.7"
+  overlay_opacity: "0.3"
