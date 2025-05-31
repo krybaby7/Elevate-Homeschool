@@ -151,11 +151,39 @@
                     const ctaButton = document.getElementById('hero-cta');
                     ctaButton.textContent = heroData.cta_text;
                     ctaButton.href = heroData.cta_link;
+                    
+                    // Update hero background
+                    if (heroData.background) {
+                        const root = document.documentElement;
+                        if (heroData.background.image) {
+                            root.style.setProperty('--hero-bg-image', `url('${heroData.background.image}')`);
+                        }
+                        if (heroData.background.color) {
+                            root.style.setProperty('--hero-bg-color', heroData.background.color);
+                        }
+                        if (heroData.background.overlay_opacity !== undefined) {
+                            root.style.setProperty('--hero-overlay-opacity', heroData.background.overlay_opacity);
+                        }
+                    }
                 }
 
                 // Update advantages section
                 if (advantagesData) {
                     document.getElementById('advantages-title').textContent = advantagesData.section_title;
+                    
+                    // Update advantages background
+                    if (advantagesData.background) {
+                        const root = document.documentElement;
+                        if (advantagesData.background.image) {
+                            root.style.setProperty('--advantages-bg-image', `url('${advantagesData.background.image}')`);
+                        }
+                        if (advantagesData.background.color) {
+                            root.style.setProperty('--advantages-bg-color', advantagesData.background.color);
+                        }
+                        if (advantagesData.background.overlay_opacity !== undefined) {
+                            root.style.setProperty('--advantages-overlay-opacity', advantagesData.background.overlay_opacity);
+                        }
+                    }
                     
                     const grid = document.getElementById('advantages-grid');
                     grid.innerHTML = '';
@@ -177,6 +205,20 @@
                     document.getElementById('program-title').textContent = programData.title;
                     document.getElementById('program-description').textContent = programData.description;
                     document.getElementById('features-title').textContent = programData.features_title;
+                    
+                    // Update programs background
+                    if (programData.background) {
+                        const root = document.documentElement;
+                        if (programData.background.image) {
+                            root.style.setProperty('--programs-bg-image', `url('${programData.background.image}')`);
+                        }
+                        if (programData.background.color) {
+                            root.style.setProperty('--programs-bg-color', programData.background.color);
+                        }
+                        if (programData.background.overlay_opacity !== undefined) {
+                            root.style.setProperty('--programs-overlay-opacity', programData.background.overlay_opacity);
+                        }
+                    }
                     
                     const featuresList = document.getElementById('features-list');
                     featuresList.innerHTML = '';
@@ -209,6 +251,20 @@
                 if (registrationData) {
                     document.getElementById('registration-title').textContent = registrationData.title;
                     document.getElementById('registration-subtitle').textContent = registrationData.subtitle;
+                    
+                    // Update registration background
+                    if (registrationData.background) {
+                        const root = document.documentElement;
+                        if (registrationData.background.image) {
+                            root.style.setProperty('--registration-bg-image', `url('${registrationData.background.image}')`);
+                        }
+                        if (registrationData.background.color) {
+                            root.style.setProperty('--registration-bg-color', registrationData.background.color);
+                        }
+                        if (registrationData.background.overlay_opacity !== undefined) {
+                            root.style.setProperty('--registration-overlay-opacity', registrationData.background.overlay_opacity);
+                        }
+                    }
                     
                     const formFields = document.getElementById('form-fields');
                     formFields.innerHTML = '';

@@ -39,12 +39,44 @@ collections:
           - { label: "Subtitle", name: "subtitle", widget: "text" }
           - { label: "Call to Action Text", name: "cta_text", widget: "string" }
           - { label: "Call to Action Link", name: "cta_link", widget: "string" }
+          - label: "Background Settings"
+            name: "background"
+            widget: "object"
+            fields:
+              - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Leave empty to use default background" }
+              - { label: "Background Color", name: "color", widget: "color", default: "#F5E6D3", hint: "Used as fallback or overlay" }
+              - label: "Overlay Opacity"
+                name: "overlay_opacity"
+                widget: "select"
+                default: "0.3"
+                options:
+                  - { label: "No Overlay", value: "0" }
+                  - { label: "Light (10%)", value: "0.1" }
+                  - { label: "Medium (30%)", value: "0.3" }
+                  - { label: "Heavy (50%)", value: "0.5" }
+                  - { label: "Very Heavy (70%)", value: "0.7" }
 
       - name: "advantages"
         label: "Advantages Section"
         file: "_data/advantages.yml"
         fields:
           - { label: "Section Title", name: "section_title", widget: "string" }
+          - label: "Background Settings"
+            name: "background"
+            widget: "object"
+            fields:
+              - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Leave empty to use default background" }
+              - { label: "Background Color", name: "color", widget: "color", default: "#FAFAFA", hint: "Used as fallback or overlay" }
+              - label: "Overlay Opacity"
+                name: "overlay_opacity"
+                widget: "select"
+                default: "0"
+                options:
+                  - { label: "No Overlay", value: "0" }
+                  - { label: "Light (10%)", value: "0.1" }
+                  - { label: "Medium (30%)", value: "0.3" }
+                  - { label: "Heavy (50%)", value: "0.5" }
+                  - { label: "Very Heavy (70%)", value: "0.7" }
           - label: "Advantage Cards"
             name: "cards"
             widget: "list"
@@ -58,6 +90,22 @@ collections:
         file: "_data/program.yml"
         fields:
           - { label: "Section Title", name: "section_title", widget: "string" }
+          - label: "Background Settings"
+            name: "background"
+            widget: "object"
+            fields:
+              - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Leave empty to use default background" }
+              - { label: "Background Color", name: "color", widget: "color", default: "#E8E6E3", hint: "Used as fallback or overlay" }
+              - label: "Overlay Opacity"
+                name: "overlay_opacity"
+                widget: "select"
+                default: "0"
+                options:
+                  - { label: "No Overlay", value: "0" }
+                  - { label: "Light (10%)", value: "0.1" }
+                  - { label: "Medium (30%)", value: "0.3" }
+                  - { label: "Heavy (50%)", value: "0.5" }
+                  - { label: "Very Heavy (70%)", value: "0.7" }
           - { label: "Program Title", name: "title", widget: "string" }
           - { label: "Program Description", name: "description", widget: "text" }
           - { label: "Features Title", name: "features_title", widget: "string" }
@@ -82,6 +130,22 @@ collections:
         fields:
           - { label: "Section Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Background Settings"
+            name: "background"
+            widget: "object"
+            fields:
+              - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Leave empty to use default background" }
+              - { label: "Background Color", name: "color", widget: "color", default: "#E8E6E3", hint: "Used as fallback or overlay" }
+              - label: "Overlay Opacity"
+                name: "overlay_opacity"
+                widget: "select"
+                default: "0.3"
+                options:
+                  - { label: "No Overlay", value: "0" }
+                  - { label: "Light (10%)", value: "0.1" }
+                  - { label: "Medium (30%)", value: "0.3" }
+                  - { label: "Heavy (50%)", value: "0.5" }
+                  - { label: "Very Heavy (70%)", value: "0.7" }
           - label: "Form Fields"
             name: "form_fields"
             widget: "list"

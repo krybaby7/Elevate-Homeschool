@@ -9,6 +9,23 @@
     --light-background: #E8E6E3;
     --warm-background: #F5E6D3;
     --warm-accent: #E8A87C;
+    
+    /* Background Image Variables */
+    --hero-bg-image: none;
+    --hero-bg-color: #F5E6D3;
+    --hero-overlay-opacity: 0.3;
+    
+    --advantages-bg-image: none;
+    --advantages-bg-color: #FAFAFA;
+    --advantages-overlay-opacity: 0;
+    
+    --programs-bg-image: none;
+    --programs-bg-color: #E8E6E3;
+    --programs-overlay-opacity: 0;
+    
+    --registration-bg-image: none;
+    --registration-bg-color: #E8E6E3;
+    --registration-overlay-opacity: 0.3;
 }
 
 * {
@@ -73,12 +90,30 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, rgba(168, 216, 220, 0.3) 0%, rgba(245, 230, 211, 0.5) 100%), 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23F5E6D3" width="1200" height="600"/><circle fill="%23A8D8DC" cx="200" cy="150" r="80" opacity="0.3"/><circle fill="%23E8A87C" cx="1000" cy="400" r="120" opacity="0.2"/></svg>');
+    background: var(--hero-bg-color);
+    background-image: var(--hero-bg-image);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     padding: 120px 0 80px;
     margin-top: 70px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, var(--hero-overlay-opacity));
+    pointer-events: none;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
@@ -120,7 +155,28 @@ nav {
 /* Elevate Advantage Section */
 .advantage {
     padding: 80px 0;
-    background: var(--background-color);
+    background: var(--advantages-bg-color);
+    background-image: var(--advantages-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.advantage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, var(--advantages-overlay-opacity));
+    pointer-events: none;
+}
+
+.advantage .container {
+    position: relative;
+    z-index: 1;
 }
 
 .advantage h2 {
@@ -172,7 +228,28 @@ nav {
 /* Programs Section */
 .programs {
     padding: 80px 0;
-    background: var(--light-background);
+    background: var(--programs-bg-color);
+    background-image: var(--programs-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.programs::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, var(--programs-overlay-opacity));
+    pointer-events: none;
+}
+
+.programs .container {
+    position: relative;
+    z-index: 1;
 }
 
 .programs h2 {
@@ -291,8 +368,29 @@ nav {
 
 /* Registration Section */
 .registration {
-    background: linear-gradient(135deg, var(--light-background) 0%, var(--light-accent) 100%);
+    background: var(--registration-bg-color);
+    background-image: var(--registration-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 80px 0;
+    position: relative;
+}
+
+.registration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, var(--registration-overlay-opacity));
+    pointer-events: none;
+}
+
+.registration .container {
+    position: relative;
+    z-index: 1;
 }
 
 .registration h2 {
