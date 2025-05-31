@@ -1,0 +1,443 @@
+/* CSS Variables for easy theming */
+:root {
+    --primary-color: #2B5A9C;
+    --secondary-color: #8FBC8F;
+    --accent-color: #D4A574;
+    --light-accent: #A8D8DC;
+    --background-color: #FAFAFA;
+    --text-gray: #5a5a5a;
+    --light-background: #E8E6E3;
+    --warm-background: #F5E6D3;
+    --warm-accent: #E8A87C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: var(--primary-color);
+    color: var(--background-color);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(43, 90, 156, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--background-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--background-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, rgba(168, 216, 220, 0.3) 0%, rgba(245, 230, 211, 0.5) 100%), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23F5E6D3" width="1200" height="600"/><circle fill="%23A8D8DC" cx="200" cy="150" r="80" opacity="0.3"/><circle fill="%23E8A87C" cx="1000" cy="400" r="120" opacity="0.2"/></svg>');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0 80px;
+    margin-top: 70px;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    max-width: 900px;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    color: #1a4480;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    line-height: 1.7;
+}
+
+.hero-cta {
+    background: var(--secondary-color);
+    color: var(--background-color);
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.hero-cta:hover {
+    background: #7aa87a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(143, 188, 143, 0.3);
+}
+
+/* Elevate Advantage Section */
+.advantage {
+    padding: 80px 0;
+    background: var(--background-color);
+}
+
+.advantage h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.advantage-card {
+    background: var(--background-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(212, 165, 116, 0.1);
+    text-align: left;
+    border-left: 4px solid var(--accent-color);
+    transition: all 0.3s;
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(212, 165, 116, 0.2);
+}
+
+.advantage-card .icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.advantage-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.advantage-card p {
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* Programs Section */
+.programs {
+    padding: 80px 0;
+    background: var(--light-background);
+}
+
+.programs h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+}
+
+.program-card {
+    background: var(--background-color);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(43, 90, 156, 0.1);
+    transition: all 0.3s;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(43, 90, 156, 0.15);
+}
+
+.program-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.program-card .description {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.program-details {
+    margin: 1.5rem 0;
+}
+
+.program-details h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.program-details ul {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.program-details li {
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.program-details li::before {
+    content: "•";
+    color: var(--secondary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.pricing {
+    background: var(--warm-background);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+}
+
+.pricing h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.pricing .fee-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: var(--text-gray);
+}
+
+.pricing .fee-amount {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.program-cta {
+    background: var(--light-accent);
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+    margin-top: 1rem;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.program-cta:hover {
+    background: #95c9cd;
+    transform: translateY(-2px);
+}
+
+/* Registration Section */
+.registration {
+    background: linear-gradient(135deg, var(--light-background) 0%, var(--light-accent) 100%);
+    padding: 80px 0;
+}
+
+.registration h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.registration .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #1a4480;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.registration-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--background-color);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(43, 90, 156, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--light-background);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.submit-btn {
+    background: var(--light-accent);
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.submit-btn:hover {
+    background: #95c9cd;
+    transform: translateY(-2px);
+}
+
+.disclaimer {
+    font-size: 0.9rem;
+    color: #7a7a7a;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--background-color);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    color: var(--light-background);
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--background-color);
+    text-decoration: underline;
+}
+
+.map-container {
+    margin-top: 1rem;
+}
+
+.map-container iframe {
+    border: 0;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .programs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-form {
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,28 @@
+# Advantages section
+section_title: "The Best of Both Worlds: Personalized Learning, Vibrant Community"
+
+# List of advantage cards
+cards:
+  - icon: "🎓"
+    title: "Fully Accredited US High School Diploma"
+    description: "Via our partnership with Bridgeway Academy, providing globally recognized credentials."
+  
+  - icon: "📋"
+    title: "Official Transcripts & GPA"
+    description: "For seamless university applications and future opportunities with proper documentation."
+  
+  - icon: "🎯"
+    title: "Expert SAT & AP Exam Preparation"
+    description: "Integrated support to help your child ace crucial college entrance exams."
+  
+  - icon: "👨‍🏫"
+    title: "Qualified & Experienced Teachers"
+    description: "Guidance from dedicated educators in small group settings."
+  
+  - icon: "🏫"
+    title: "Supportive School Environment"
+    description: "Access to school facilities and a social learning atmosphere in collaboration with EFSSH."
+  
+  - icon: "✈️"
+    title: "Flexible Learning"
+    description: "Traveling? No problem! Seamlessly continue the program online via Google Classroom."

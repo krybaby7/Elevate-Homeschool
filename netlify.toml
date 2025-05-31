@@ -1,0 +1,33 @@
+[build]
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Enable Netlify Identity
+[template.environment]
+  NETLIFY_SITE_ID = ""
+  NETLIFY_AUTH_TOKEN = ""
+
+# Form handling
+[[plugins]]
+  package = "@netlify/plugin-form-handler"
+
+# Enable CMS
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+
+# Enable identity
+[[headers]]
+  for = "/.netlify/identity/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
