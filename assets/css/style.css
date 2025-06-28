@@ -10,22 +10,24 @@
     --warm-background: #F5E6D3;
     --warm-accent: #E8A87C;
     
-    /* Background Image Variables */
-    --hero-bg-image: none;
-    --hero-bg-color: #F5E6D3;
-    --hero-overlay-opacity: 0.3;
+    /* Dynamic Gradient Colors - Using Brand Color Palette */
+    --gradient-color-1: #E8F1FB; /* Light tinted primary blue */
+    --gradient-color-2: #F0F8F0; /* Light tinted secondary green */
+    --gradient-color-3: #F9F3EB; /* Light tinted accent gold */
+    --gradient-color-4: #EDF7F8; /* Light tinted light accent */
+    --gradient-color-5: #F5E6D3; /* Existing warm background */
+    --main-bg-color: linear-gradient(135deg, 
+        var(--gradient-color-1) 0%, 
+        var(--gradient-color-2) 25%, 
+        var(--gradient-color-3) 50%, 
+        var(--gradient-color-4) 75%, 
+        var(--gradient-color-5) 100%);
     
-    --advantages-bg-image: none;
-    --advantages-bg-color: #FAFAFA;
-    --advantages-overlay-opacity: 0;
-    
-    --programs-bg-image: none;
-    --programs-bg-color: #E8E6E3;
-    --programs-overlay-opacity: 0;
-    
-    --registration-bg-image: none;
-    --registration-bg-color: #E8E6E3;
-    --registration-overlay-opacity: 0.3;
+    /* Section-specific overlay opacities for readability */
+    --hero-overlay: rgba(255, 255, 255, 0.3);
+    --content-overlay: rgba(255, 255, 255, 0.4);
+    --light-overlay: rgba(255, 255, 255, 0.5);
+    --form-overlay: rgba(255, 255, 255, 0.6);
 }
 
 * {
@@ -38,7 +40,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--primary-color);
-    background-color: var(--background-color);
+    /* Beautiful brand gradient background */
+    background: var(--main-bg-color);
+    min-height: 100vh;
 }
 
 .container {
@@ -90,12 +94,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: var(--hero-bg-color);
-    background-image: var(--hero-bg-image);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 120px 0 80px;
+    padding: 60px 0 40px;
     margin-top: 70px;
     position: relative;
 }
@@ -107,7 +106,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, var(--hero-overlay-opacity));
+    background: var(--hero-overlay);
     pointer-events: none;
 }
 
@@ -117,19 +116,19 @@ nav {
 }
 
 .hero h1 {
-    font-size: 3.2rem;
+    font-size: 2.6rem;
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: 700;
     max-width: 900px;
 }
 
 .hero .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #1a4480;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     max-width: 800px;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 .hero-cta {
@@ -154,12 +153,7 @@ nav {
 
 /* Elevate Advantage Section */
 .advantage {
-    padding: 80px 0;
-    background: var(--advantages-bg-color);
-    background-image: var(--advantages-bg-image);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    padding: 50px 0;
     position: relative;
 }
 
@@ -170,7 +164,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, var(--advantages-overlay-opacity));
+    background: var(--content-overlay);
     pointer-events: none;
 }
 
@@ -181,16 +175,16 @@ nav {
 
 .advantage h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--primary-color);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .advantage-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .advantage-card {
@@ -225,14 +219,156 @@ nav {
     line-height: 1.6;
 }
 
+/* HarvardX Curriculum Section */
+.harvard-curriculum {
+    padding: 50px 0;
+    text-align: center;
+    position: relative;
+}
+
+.harvard-curriculum::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--light-overlay);
+    pointer-events: none;
+}
+
+.harvard-curriculum .container {
+    position: relative;
+    z-index: 1;
+}
+
+.harvard-curriculum h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.curriculum-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.curriculum-content p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.curriculum-benefits {
+    margin-top: 2.5rem;
+}
+
+.curriculum-benefits h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.benefit-item {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(43, 90, 156, 0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--warm-accent);
+}
+
+.benefit-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(43, 90, 156, 0.15);
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.benefit-content h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.benefit-content p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Partners Logo Belt */
+.partners-belt {
+    padding: 30px 0;
+    position: relative;
+}
+
+.partners-belt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--content-overlay);
+    pointer-events: none;
+}
+
+.partners-belt .container {
+    position: relative;
+    z-index: 1;
+}
+
+.partners-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+.partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.partner-logo img {
+    max-height: 80px;
+    max-width: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(20%) opacity(0.9);
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
+}
+
 /* Programs Section */
 .programs {
-    padding: 80px 0;
-    background: var(--programs-bg-color);
-    background-image: var(--programs-bg-image);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    padding: 50px 0;
     position: relative;
 }
 
@@ -243,7 +379,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, var(--programs-overlay-opacity));
+    background: var(--content-overlay);
     pointer-events: none;
 }
 
@@ -254,20 +390,20 @@ nav {
 
 .programs h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--primary-color);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .programs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 2.5rem;
+    gap: 1.5rem;
 }
 
 .program-card {
     background: var(--background-color);
-    padding: 2.5rem;
+    padding: 1.8rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(43, 90, 156, 0.1);
     transition: all 0.3s;
@@ -291,26 +427,26 @@ nav {
 }
 
 .program-details {
-    margin: 1.5rem 0;
+    margin: 1rem 0;
 }
 
 .program-details h4 {
     color: var(--primary-color);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     font-size: 1.1rem;
 }
 
 .program-details ul {
     list-style: none;
-    margin: 1rem 0;
+    margin: 0.8rem 0;
 }
 
 .program-details li {
     color: var(--text-gray);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     padding-left: 1.5rem;
     position: relative;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 .program-details li::before {
@@ -368,12 +504,7 @@ nav {
 
 /* Registration Section */
 .registration {
-    background: var(--registration-bg-color);
-    background-image: var(--registration-bg-image);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 80px 0;
+    padding: 50px 0;
     position: relative;
 }
 
@@ -384,7 +515,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, var(--registration-overlay-opacity));
+    background: var(--form-overlay);
     pointer-events: none;
 }
 
@@ -395,16 +526,16 @@ nav {
 
 .registration h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
 .registration .subtitle {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #1a4480;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -414,13 +545,13 @@ nav {
     max-width: 600px;
     margin: 0 auto;
     background: var(--background-color);
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(43, 90, 156, 0.1);
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .form-group label {
@@ -519,23 +650,91 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hero {
+        padding: 40px 0 30px;
+    }
+
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
     }
 
     .hero .subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .advantage, .programs, .registration, .harvard-curriculum {
+        padding: 35px 0;
+    }
+
+    .advantage h2, .programs h2, .registration h2, .harvard-curriculum h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .harvard-curriculum .curriculum-content p {
+        font-size: 1rem;
+    }
+
+    .harvard-curriculum .curriculum-benefits h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .benefits-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .benefit-item {
+        padding: 1.2rem;
+    }
+
+    .advantage-grid {
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .advantage-card {
+        padding: 1.5rem;
+    }
+
+    .program-card {
+        padding: 1.5rem;
+    }
+
+    .programs-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .registration .subtitle {
+        margin-bottom: 1.5rem;
+    }
+
+    .registration-form {
+        padding: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
     }
 
     .nav-links {
         display: none;
     }
 
-    .programs-grid {
-        grid-template-columns: 1fr;
+    .partners-belt {
+        padding: 20px 0;
     }
 
-    .registration-form {
-        padding: 2rem;
+    .partners-logos {
+        gap: 2rem;
+    }
+
+    .partner-logo img {
+        max-height: 45px;
+        max-width: 120px;
     }
 }

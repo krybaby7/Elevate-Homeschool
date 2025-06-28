@@ -3,8 +3,8 @@ sections:
   - title: "Contact Information"
     content:
       - text: "© 2025 Elevate Learning Center, Sharm El-Sheikh"
-      - text: "Email: info@elevatelearningsharm.com"
-      - text: "Phone: +20 XXX XXX XXXX"
+      - text: "Email: info@elevate-sharm.com"
+      - text: "Phone: +20 1157925051"
   
   - title: "Partnership"
     content:
@@ -12,6 +12,7 @@ sections:
       - text: "The French School of Sharm el Sheikh (EFSSH)"
         link: "https://ecolefrancaisesharm.com/"
       - text: "Bridgeway Academy"
+        link: "https://homeschoolacademy.com/"
   
   - title: "Location"
     content:

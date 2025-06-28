@@ -44,6 +44,65 @@
         </div>
     </section>
 
+    <!-- HarvardX Curriculum Section -->
+    <section class="harvard-curriculum">
+        <div class="container">
+            <h2>A World-Class Curriculum, Powered by HarvardX</h2>
+            
+            <div class="curriculum-content">
+                <p>Our elective courses offer a unique advantage: students engage directly with official course material from Harvard University's online platform, HarvardX.</p>
+                
+                <p>We then bring this world-class content to life in our classroom. Our expert teachers provide the essential support, discussion, and guidance needed to master these advanced subjects.</p>
+                
+                <div class="curriculum-benefits">
+                    <h3>Our model gives your child:</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🚀</div>
+                            <div class="benefit-content">
+                                <h4>A Competitive Edge</h4>
+                                <p>Experience university-level learning in subjects like AI, Computer Science, and Economics.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🧠</div>
+                            <div class="benefit-content">
+                                <h4>Deep Understanding</h4>
+                                <p>Go beyond videos with teacher-led seminars and personalized projects.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎯</div>
+                            <div class="benefit-content">
+                                <h4>A Path to Excellence</h4>
+                                <p>Gain the critical thinking skills needed to succeed at top universities worldwide.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Logo Belt -->
+    <section class="partners-belt">
+        <div class="container">
+            <div class="partners-logos">
+                <div class="partner-logo">
+                    <img src="assets/images/efssh-logo.png.png" alt="École Française Sharm el Sheikh" />
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/hx-logo.png.png" alt="HX Platform" />
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/edx-logo.png.png" alt="edX Education Platform" />
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Tuition Fees Section -->
     <section class="programs" id="programs">
         <div class="container">
@@ -298,8 +357,8 @@
                 }
 
                 // Update footer
+                const footerSections = document.getElementById('footer-sections');
                 if (footerData) {
-                    const footerSections = document.getElementById('footer-sections');
                     footerSections.innerHTML = '';
                     
                     footerData.sections.forEach((section, index) => {
@@ -343,6 +402,37 @@
                     });
 
                     document.getElementById('copyright').textContent = footerData.copyright;
+                } else {
+                    // Fallback footer content when YAML files don't load
+                    footerSections.innerHTML = `
+                        <div class="footer-section">
+                            <h3>Contact Information</h3>
+                            <p>© 2025 Elevate Learning Center, Sharm El-Sheikh</p>
+                            <p>Email: info@elevate-sharm.com</p>
+                            <p>Phone: +20 1157925051</p>
+                        </div>
+                        <div class="footer-section">
+                            <h3>Partnership</h3>
+                            <p>In collaboration with</p>
+                            <p><a href="https://ecolefrancaisesharm.com/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: none;">The French School of Sharm el Sheikh (EFSSH)</a></p>
+                            <p><a href="https://homeschoolacademy.com/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: none;">Bridgeway Academy</a></p>
+                        </div>
+                        <div class="footer-section">
+                            <h3>Location</h3>
+                            <p>at the French School in Hadaba</p>
+                            <div class="map-container">
+                                <iframe 
+                                    src="https://maps.google.com/maps?q=27.8598,34.3016&hl=en&z=15&output=embed"
+                                    width="100%"
+                                    height="150"
+                                    style="border:0; border-radius: 8px; margin-top: 1rem;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    `;
                 }
 
             } catch (error) {
