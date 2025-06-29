@@ -55,7 +55,7 @@ body {
 header {
     background: var(--primary-color);
     color: var(--background-color);
-    padding: 1rem 0;
+    padding: 0.7rem 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -69,10 +69,24 @@ nav {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin: -10px 0;
+    margin-left: 2rem;
+}
+
+.logo-image {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
     color: var(--background-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 .nav-links {
@@ -737,5 +751,19 @@ footer {
     .partner-logo img {
         max-height: 45px;
         max-width: 120px;
+    }
+
+
+    .logo-container {
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .logo-image {
+        height: 60px;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
     }
 }

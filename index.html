@@ -14,7 +14,9 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo" id="logo-text">Elevate Assisted Homeschool</div>
+            <div class="logo-container">
+                <img src="assets/images/Elevate%20Logo.png" alt="Elevate" class="logo-image" id="logo-image">
+            </div>
             <ul class="nav-links">
                 <li><a href="#about">Homeschool Assistance</a></li>
                 <li><span style="color: var(--secondary-color); cursor: not-allowed; opacity: 0.6;">SAT Prep <small>(Coming Soon)</small></span></li>
@@ -192,7 +194,19 @@
                     document.getElementById('page-title').textContent = siteData.title;
                     document.getElementById('page-description').content = siteData.meta_description;
                     document.getElementById('page-keywords').content = siteData.keywords;
-                    document.getElementById('logo-text').textContent = siteData.logo_text;
+                    
+                    // Update logo image and text
+                    const logoImageElement = document.getElementById('logo-image');
+                    const logoTextElement = document.getElementById('logo-text');
+                    
+                    if (logoImageElement && siteData.logo_image) {
+                        logoImageElement.src = siteData.logo_image;
+                        logoImageElement.alt = 'Elevate';
+                    }
+                    
+                    if (logoTextElement && siteData.logo_subtitle) {
+                        logoTextElement.textContent = siteData.logo_subtitle;
+                    }
                     
                     // Update CSS variables if colors are defined
                     if (siteData.colors) {
