@@ -651,6 +651,7 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
+        margin-top: 90px;
         padding: 40px 0 30px;
     }
 
