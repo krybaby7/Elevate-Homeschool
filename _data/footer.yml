@@ -1,0 +1,28 @@
+# Footer content
+sections:
+  - title: "Contact Information"
+    content:
+      - text: "© 2025 Elevate Learning Center, Sharm El-Sheikh"
+      - text: "Email: info@elevate-sharm.com"
+      - text: "Phone: +20 1157925051"
+  
+  - title: "Partnership"
+    content:
+      - text: "In collaboration with"
+      - text: "The French School of Sharm el Sheikh (EFSSH)"
+        link: "https://ecolefrancaisesharm.com/"
+      - text: "Bridgeway Academy"
+        link: "https://homeschoolacademy.com/"
+  
+  - title: "Location"
+    content:
+      - text: "at the French School in Hadaba"
+
+# Location settings for map
+location:
+  latitude: 27.8598
+  longitude: 34.3016
+  zoom: 15
+
+# Copyright text
+copyright: "All Rights Reserved"

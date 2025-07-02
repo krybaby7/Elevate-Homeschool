@@ -1,0 +1,193 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "site"
+        label: "General Site Settings"
+        file: "_data/site.yml"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string" }
+          - { label: "Logo Text", name: "logo_text", widget: "string" }
+          - { label: "Meta Description", name: "meta_description", widget: "text" }
+          - { label: "Keywords", name: "keywords", widget: "string" }
+          - label: "Color Scheme"
+            name: "colors"
+            widget: "object"
+            fields:
+              - { label: "Primary Color", name: "primary", widget: "color" }
+              - { label: "Secondary Color", name: "secondary", widget: "color" }
+              - { label: "Accent Color", name: "accent", widget: "color" }
+              - { label: "Light Accent", name: "light_accent", widget: "color" }
+              - { label: "Background Color", name: "background", widget: "color" }
+              - { label: "Text Gray", name: "text_gray", widget: "color" }
+              - { label: "Light Background", name: "light_background", widget: "color" }
+              - { label: "Warm Background", name: "warm_background", widget: "color" }
+              - { label: "Warm Accent", name: "warm_accent", widget: "color" }
+
+      - name: "hero"
+        label: "Hero Section"
+        file: "_data/hero.yml"
+        fields:
+          - { label: "Main Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Call to Action Text", name: "cta_text", widget: "string" }
+          - { label: "Call to Action Link", name: "cta_link", widget: "string" }
+          - label: "Background Settings"
+            name: "background"
+            widget: "object"
+            fields:
+              - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Leave empty to use default background" }
+              - { label: "Background Color", name: "color", widget: "color", default: "#F5E6D3", hint: "Used as fallback or overlay" }
+              - label: "Overlay Opacity"
+                name: "overlay_opacity"
+                widget: "select"
+                default: "0.3"
+                options:
+                  - { label: "No Overlay", value: "0" }
+                  - { label: "Light (10%)", value: "0.1" }
+                  - { label: "Medium (30%)", value: "0.3" }
+                  - { label: "Heavy (50%)", value: "0.5" }
+                  - { label: "Very Heavy (70%)", value: "0.7" }
+
+      - name: "advantages"
+        label: "Advantages Section"
+        file: "_data/advantages.yml"
+        fields:
+          - { label: "Section Title", name: "section_title", widget: "string" }
+          - label: "Background Settings"
+            name: "background"
+            widget: "object"
+            fields:
+              - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Leave empty to use default background" }
+              - { label: "Background Color", name: "color", widget: "color", default: "#FAFAFA", hint: "Used as fallback or overlay" }
+              - label: "Overlay Opacity"
+                name: "overlay_opacity"
+                widget: "select"
+                default: "0"
+                options:
+                  - { label: "No Overlay", value: "0" }
+                  - { label: "Light (10%)", value: "0.1" }
+                  - { label: "Medium (30%)", value: "0.3" }
+                  - { label: "Heavy (50%)", value: "0.5" }
+                  - { label: "Very Heavy (70%)", value: "0.7" }
+          - label: "Advantage Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { label: "Icon (Emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - name: "program"
+        label: "Program Section"
+        file: "_data/program.yml"
+        fields:
+          - { label: "Section Title", name: "section_title", widget: "string" }
+          - label: "Background Settings"
+            name: "background"
+            widget: "object"
+            fields:
+              - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Leave empty to use default background" }
+              - { label: "Background Color", name: "color", widget: "color", default: "#E8E6E3", hint: "Used as fallback or overlay" }
+              - label: "Overlay Opacity"
+                name: "overlay_opacity"
+                widget: "select"
+                default: "0"
+                options:
+                  - { label: "No Overlay", value: "0" }
+                  - { label: "Light (10%)", value: "0.1" }
+                  - { label: "Medium (30%)", value: "0.3" }
+                  - { label: "Heavy (50%)", value: "0.5" }
+                  - { label: "Very Heavy (70%)", value: "0.7" }
+          - { label: "Program Title", name: "title", widget: "string" }
+          - { label: "Program Description", name: "description", widget: "text" }
+          - { label: "Features Title", name: "features_title", widget: "string" }
+          - label: "Features List"
+            name: "features"
+            widget: "list"
+            field: { label: "Feature", name: "feature", widget: "string" }
+          - { label: "Pricing Title", name: "pricing_title", widget: "string" }
+          - label: "Fees"
+            name: "fees"
+            widget: "list"
+            fields:
+              - { label: "Fee Item", name: "item", widget: "string" }
+              - { label: "Amount", name: "amount", widget: "string" }
+          - { label: "Pricing Note", name: "pricing_note", widget: "string" }
+          - { label: "Call to Action Text", name: "cta_text", widget: "string" }
+          - { label: "Call to Action Link", name: "cta_link", widget: "string" }
+
+      - name: "registration"
+        label: "Registration Section"
+        file: "_data/registration.yml"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Background Settings"
+            name: "background"
+            widget: "object"
+            fields:
+              - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Leave empty to use default background" }
+              - { label: "Background Color", name: "color", widget: "color", default: "#E8E6E3", hint: "Used as fallback or overlay" }
+              - label: "Overlay Opacity"
+                name: "overlay_opacity"
+                widget: "select"
+                default: "0.3"
+                options:
+                  - { label: "No Overlay", value: "0" }
+                  - { label: "Light (10%)", value: "0.1" }
+                  - { label: "Medium (30%)", value: "0.3" }
+                  - { label: "Heavy (50%)", value: "0.5" }
+                  - { label: "Very Heavy (70%)", value: "0.7" }
+          - label: "Form Fields"
+            name: "form_fields"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - label: "Field Type"
+                name: "type"
+                widget: "select"
+                options: ["text", "email", "tel", "select"]
+              - { label: "Field ID", name: "id", widget: "string" }
+              - { label: "Field Name", name: "name", widget: "string" }
+              - { label: "Required", name: "required", widget: "boolean", default: false }
+              - label: "Options (for select fields)"
+                name: "options"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Display Text", name: "text", widget: "string" }
+          - { label: "Submit Button Text", name: "submit_text", widget: "string" }
+          - { label: "Disclaimer Text", name: "disclaimer", widget: "text" }
+
+      - name: "footer"
+        label: "Footer"
+        file: "_data/footer.yml"
+        fields:
+          - label: "Footer Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Content"
+                name: "content"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "Link (optional)", name: "link", widget: "string", required: false }
+          - label: "Location Settings"
+            name: "location"
+            widget: "object"
+            fields:
+              - { label: "Latitude", name: "latitude", widget: "number", value_type: "float" }
+              - { label: "Longitude", name: "longitude", widget: "number", value_type: "float" }
+              - { label: "Zoom Level", name: "zoom", widget: "number", value_type: "int", min: 1, max: 20 }
+          - { label: "Copyright Text", name: "copyright", widget: "string" }

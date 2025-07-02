@@ -1,0 +1,19 @@
+# Site-wide settings
+title: "Elevate Learning Center - Homeschooling Made Better in Sharm El-Sheikh"
+logo_image: "assets/images/Elevate%20Logo.png"
+logo_text: "Elevate Assisted Homeschool"
+logo_subtitle: "Assisted Homeschool"
+meta_description: "Elevate offers a unique blend of homeschooling flexibility with the benefits of a supportive school environment in Sharm El-Sheikh. Get an internationally recognized American High School Diploma."
+keywords: "homeschool, Sharm El-Sheikh, American diploma, Bridgeway Academy, French School, EFSSH, education"
+
+# Color scheme
+colors:
+  primary: "#2B5A9C"
+  secondary: "#8FBC8F"
+  accent: "#D4A574"
+  light_accent: "#A8D8DC"
+  background: "#FAFAFA"
+  text_gray: "#5a5a5a"
+  light_background: "#E8E6E3"
+  warm_background: "#F5E6D3"
+  warm_accent: "#E8A87C"
