@@ -181,12 +181,12 @@
             try {
                 // Load all data files
                 const [siteData, heroData, advantagesData, programData, registrationData, footerData] = await Promise.all([
-                    loadYAMLFile('data/site.yml'),
-                    loadYAMLFile('data/hero.yml'),
-                    loadYAMLFile('data/advantages.yml'),
-                    loadYAMLFile('data/program.yml'),
-                    loadYAMLFile('data/registration.yml'),
-                    loadYAMLFile('data/footer.yml')
+                    loadYAMLFile('site.yml'),
+                    loadYAMLFile('hero.yml'),
+                    loadYAMLFile('advantages.yml'),
+                    loadYAMLFile('program.yml'),
+                    loadYAMLFile('registration.yml'),
+                    loadYAMLFile('footer.yml')
                 ]);
 
                 // Update site metadata
