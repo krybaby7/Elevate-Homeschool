@@ -145,6 +145,16 @@ nav {
     line-height: 1.6;
 }
 
+.hero .subtitle a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.hero .subtitle a:hover {
+    color: var(--primary-color);
+}
+
 .hero-cta {
     background: var(--secondary-color);
     color: var(--background-color);
