@@ -168,7 +168,7 @@
         // Load and populate content from YAML files
         async function loadYAMLFile(filename) {
             try {
-                const response = await fetch(`_data/${filename}`);
+                const response = await fetch(`data/${filename}`);
                 const yamlText = await response.text();
                 return jsyaml.load(yamlText);
             } catch (error) {
