@@ -220,7 +220,7 @@
                 // Update hero section
                 if (heroData) {
                     document.getElementById('hero-title').textContent = heroData.title;
-                    document.getElementById('hero-subtitle').textContent = heroData.subtitle;
+                    document.getElementById('hero-subtitle').innerHTML = heroData.subtitle;
                     const ctaButton = document.getElementById('hero-cta');
                     ctaButton.textContent = heroData.cta_text;
                     ctaButton.href = heroData.cta_link;
