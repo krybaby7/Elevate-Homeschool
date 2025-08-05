@@ -2,17 +2,19 @@
 section_title: "Tuition Fees"
 
 # Program details
-title: "Full Homeschool Assistance Programme"
-description: "Designed for high school students (Grades 9-12) seeking an internationally recognized American High School Diploma. Our program provides teacher-guided group lessons, curriculum support through Bridgeway Academy, and a structured school day."
+title: "High-School Program with APs"
+description: "A personalized, full-time high school experience for students (Grades 9-12) pursuing an internationally recognized American High School Diploma. Our flexible approach combines rigorous academics with AP courses and university-level Harvard electives, all delivered in small-group settings that adapt to each student's learning style and pace."
 
 # Key features list
 features_title: "Key Features:"
 features:
-  - "Comprehensive support for Bridgeway Academy curriculum"
-  - "Bilingual environment (with French classes)"
-  - "Shared sport lessons with EFSSH"
-  - "Small group settings with personalized attention"
-  - "Multicultural teachers"
+  - "AP (Advanced Placement) courses available"
+  - "University-level electives featuring official HarvardX material"
+  - "Personalized learning approach in small-group settings"
+  - "Bilingual environment with French language instruction"
+  - "Comprehensive Bridgeway Academy curriculum support"
+  - "Shared athletic programs with École Française (EFSSH)"
+  - "Multicultural teaching staff"
 
 # Pricing information
 pricing_title: "Transparent Fee Structure:"
@@ -25,5 +27,5 @@ fees:
 pricing_note: "Note: SAT ($111) & AP ($129) Exam fees are separate"
 
 # Call to action
-cta_text: "Interested!"
+cta_text: "Ready to Elevate Your Child's Education!"
 cta_link: "#contact"
