@@ -129,11 +129,6 @@
                     </div>
 
                     <a href="#contact" class="program-cta" id="program-cta">Interested!</a>
-                    
-                    <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 1rem; margin-top: 1.5rem; text-align: center;">
-                        <p style="margin: 0; color: #856404; font-weight: bold;">🎯 Limited to 15 Students This Year!</p>
-                        <p style="margin: 0.5rem 0 0 0; color: #856404; font-size: 0.9rem;">We maintain small class sizes to ensure close teacher-student relationships and personalized attention for every student.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -146,7 +141,7 @@
             <p class="subtitle" id="registration-subtitle">We are now gauging interest for our September 2025 intake. Spots are limited. Register your interest below to receive our full program brochure, fee details, and an invitation to an online information session.</p>
             
             <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; text-align: center;">
-                <p style="margin: 0; color: #856404; font-weight: bold; font-size: 1.1rem;">🎯 Only 15 Spots Available</p>
+                <p style="margin: 0; color: #856404; font-weight: bold; font-size: 1.1rem;">⚠️ Only 15 Spots Available</p>
                 <p style="margin: 0.5rem 0 0 0; color: #856404; font-size: 1rem;">We maintain a maximum of 15 students to ensure personalized teaching and close teacher-student relationships. Secure your child's spot today!</p>
             </div>
             
@@ -314,6 +309,10 @@
                         li.textContent = feature;
                         featuresList.appendChild(li);
                     });
+                    // Add the 15-student limit as a key feature
+                    const limitedStudentsFeature = document.createElement('li');
+                    limitedStudentsFeature.textContent = 'Limited to 15 students this year for personalized attention';
+                    featuresList.appendChild(limitedStudentsFeature);
 
                     document.getElementById('pricing-title').textContent = programData.pricing_title;
                     const feesList = document.getElementById('fees-list');
