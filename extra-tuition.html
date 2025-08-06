@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Tuition (AP, SAT, & More) | Elevate Learning Center</title>
+    <meta name="description" content="Expert academic support in Sharm El-Sheikh for SAT, AP exams, and school subjects like Maths and English. Open to all students.">
+    <meta name="keywords" content="extra tuition, SAT prep, AP prep, tutoring, Sharm El-Sheikh, education">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <a href="index.html"><img src="assets/images/Elevate%20Logo.png" alt="Elevate" class="logo-image"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#about">Homeschool Assistance</a></li>
+                <li><a href="extra-tuition.html">Extra tuition (AP, SAT, and more.)</a></li>
+                <li><a href="index.html#programs">Tuition Fees</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Extra Tuition at Elevate</h1>
+            <p class="subtitle">Expert help for SAT, AP exams, and school subjects. Open to all students in Sharm. Get the support your child needs to excel.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="advantage" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="advantage-grid">
+                <div class="advantage-card">
+                    <div class="icon">🎓</div>
+                    <h3>SAT Preparation</h3>
+                    <ul>
+                        <li>Build confidence for university entrance</li>
+                        <li>Expert teaching & real practice tests</li>
+                        <li>Proven strategies that get results</li>
+                    </ul>
+                </div>
+                <div class="advantage-card">
+                    <div class="icon">🚀</div>
+                    <h3>AP Exam Preparation</h3>
+                    <ul>
+                        <li>Earn university credit in high school</li>
+                        <li>Master challenging, university-level subjects</li>
+                        <li>Aim for top scores & build a strong profile</li>
+                    </ul>
+                </div>
+                <div class="advantage-card">
+                    <div class="icon">📚</div>
+                    <h3>Personalized Subject Tutoring</h3>
+                    <ul>
+                        <li>Expert help in Maths, English & more</li>
+                        <li>Bring your school books and assignments</li>
+                        <li>Targeted support for homework & exams</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="programs" id="pricing">
+        <div class="container">
+            <h2>Seasonal Packages & Pricing</h2>
+            <div class="programs-grid" style="justify-content: center;">
+                <div class="program-card">
+                    <h3>Seasonal Package</h3>
+                    <p class="description">To provide consistent support, we offer seasonal packages providing 8 hours of tuition per week for a two-month period.</p>
+                    <div class="pricing">
+                        <div class="fee-item">
+                            <span>Package Price</span>
+                            <span class="fee-amount">10,000 EGP</span>
+                        </div>
+                    </div>
+                    <div class="program-details">
+                        <h4>Our Seasons:</h4>
+                        <ul>
+                            <li><strong>Early Year Boost:</strong> September - October</li>
+                            <li><strong>Midterm Support:</strong> November - December</li>
+                            <li><strong>End of Year Season:</strong> April - May</li>
+                        </ul>
+                    </div>
+                    <p style="text-align: center; color: var(--text-gray); margin-top: 1rem;">Drop-in sessions are also available. Please contact us for rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="registration" id="contact-info">
+        <div class="container">
+            <h2>Get Started Today</h2>
+            <p class="subtitle">Ready to give your child the academic advantage they deserve? Contact us to learn more and register for our next season.</p>
+            <div class="contact-details" style="text-align: center; font-size: 1.2rem; color: var(--primary-color);">
+                <p style="margin-bottom: 1rem;">📧 Email: <strong>elevatesharm@gmail.com</strong></p>
+                <p>📞 Phone: <strong>+20 115 792 5051</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content" id="footer-sections">
+                <!-- Footer will be populated by JS -->
+            </div>
+            <p id="copyright" style="margin-top: 1rem; opacity: 0.8;">All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Load and populate footer from YAML
+        async function loadYAMLFile(filename) {
+            try {
+                const response = await fetch(`data/${filename}`);
+                const yamlText = await response.text();
+                return jsyaml.load(yamlText);
+            } catch (error) {
+                console.warn(`Could not load ${filename}, using fallback content`);
+                return null;
+            }
+        }
+
+        async function populateFooter() {
+            const footerData = await loadYAMLFile('footer.yml');
+            const footerSections = document.getElementById('footer-sections');
+            if (footerData) {
+                footerSections.innerHTML = '';
+                footerData.sections.forEach(section => {
+                    const sectionElement = document.createElement('div');
+                    sectionElement.className = 'footer-section';
+                    if (section.title === 'Location') {
+                        sectionElement.innerHTML = `
+                            <h3>${section.title}</h3>
+                            ${section.content.map(item => `<p>${item.text || item}</p>`).join('')}
+                            <div class="map-container">
+                                <iframe 
+                                    src="https://maps.google.com/maps?q=${footerData.location.latitude},${footerData.location.longitude}&hl=en&z=${footerData.location.zoom}&output=embed"
+                                    width="100%" height="150" style="border:0; border-radius: 8px; margin-top: 1rem;"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        `;
+                    } else {
+                        sectionElement.innerHTML = `
+                            <h3>${section.title}</h3>
+                            ${section.content.map(item => {
+                                if (typeof item === 'string') return `<p>${item}</p>`;
+                                if (item.link) return `<p><a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.text}</a></p>`;
+                                return `<p>${item.text}</p>`;
+                            }).join('')}
+                        `;
+                    }
+                    footerSections.appendChild(sectionElement);
+                });
+                document.getElementById('copyright').textContent = footerData.copyright;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', populateFooter);
+    </script>
+</body>
+</html>
