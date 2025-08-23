@@ -1,5 +1,8 @@
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle functionality
+    initializeMobileMenu();
+
     // Get all links that have href starting with #
     const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
     
@@ -116,4 +119,48 @@ function initializeDynamicGradient() {
     
     // Initial gradient update
     updateGradient();
+}
+
+function initializeMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', function() {
+            // Toggle active class on button for animation
+            mobileMenuBtn.classList.toggle('active');
+            
+            // Toggle active class on nav links to show/hide menu
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on navigation links
+        const navLinkItems = navLinks.querySelectorAll('a');
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', function() {
+                // Close the mobile menu
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickOnButton = mobileMenuBtn.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnButton && navLinks.classList.contains('active')) {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu on window resize if screen becomes large
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
 }
