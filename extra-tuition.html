@@ -266,14 +266,6 @@
             <form class="registration-form" netlify name="extra-tuition-contact">
                 <!-- Hidden inputs for Netlify form detection -->
                 <input type="hidden" name="form-name" value="extra-tuition-contact" />
-                <input type="hidden" name="parent-name" />
-                <input type="hidden" name="email" />
-                <input type="hidden" name="phone" />
-                <input type="hidden" name="child-name" />
-                <input type="hidden" name="grade" />
-                <input type="hidden" name="subjects" />
-                <input type="hidden" name="seasons" />
-                <input type="hidden" name="comments" />
                 
                 <div class="form-group">
                     <label for="parent-name">Parent's Full Name*</label>
@@ -314,19 +306,19 @@
                     <label>Subjects of Interest* (Select all that apply)</label>
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
                         <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
-                            <input type="checkbox" name="subjects" value="English Proficiency" required style="margin: 0;">
+                            <input type="checkbox" name="subject-english-proficiency" value="English Proficiency (SAT)" style="margin: 0;">
                             <span>English Proficiency (SAT)</span>
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
-                            <input type="checkbox" name="subjects" value="English Literature" style="margin: 0;">
+                            <input type="checkbox" name="subject-english-literature" value="English Literature (AP)" style="margin: 0;">
                             <span>English Literature (AP)</span>
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
-                            <input type="checkbox" name="subjects" value="Math Tuition" style="margin: 0;">
+                            <input type="checkbox" name="subject-math-tuition" value="Math Tuition (SAT)" style="margin: 0;">
                             <span>Math Tuition (SAT)</span>
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
-                            <input type="checkbox" name="subjects" value="Macroeconomics" style="margin: 0;">
+                            <input type="checkbox" name="subject-macroeconomics" value="Macroeconomics (AP)" style="margin: 0;">
                             <span>Macroeconomics (AP)</span>
                         </label>
                     </div>
@@ -336,23 +328,23 @@
                     <label>Preferred Season(s) (Select all that apply)</label>
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
                         <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
-                            <input type="checkbox" name="seasons" value="Season 1" style="margin: 0;">
+                            <input type="checkbox" name="season-1" value="Season 1 (Sept 14 - Nov 5)" style="margin: 0;">
                             <span>Season 1 (Sept 14 - Nov 5)</span>
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
-                            <input type="checkbox" name="seasons" value="Season 2" style="margin: 0;">
+                            <input type="checkbox" name="season-2" value="Season 2 (Nov 9 - Dec 17)" style="margin: 0;">
                             <span>Season 2 (Nov 9 - Dec 17)</span>
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
-                            <input type="checkbox" name="seasons" value="Season 3" style="margin: 0;">
+                            <input type="checkbox" name="season-3" value="Season 3 (Jan 11 - Feb 18)" style="margin: 0;">
                             <span>Season 3 (Jan 11 - Feb 18)</span>
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
-                            <input type="checkbox" name="seasons" value="Season 4" style="margin: 0;">
+                            <input type="checkbox" name="season-4" value="Season 4 (Mar 1 - Apr 19)" style="margin: 0;">
                             <span>Season 4 (Mar 1 - Apr 19)</span>
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; grid-column: span 2;">
-                            <input type="checkbox" name="seasons" value="Season 5" style="margin: 0;">
+                            <input type="checkbox" name="season-5" value="Season 5 (May 3 - Jun 2) - SAT Focus Only" style="margin: 0;">
                             <span>Season 5 (May 3 - Jun 2) - SAT Focus Only</span>
                         </label>
                     </div>
