@@ -19,8 +19,9 @@ features:
 # Pricing information
 pricing_title: "Transparent Fee Structure:"
 fees:
-  - item: "Annual Bridgeway Academy Registration:"
-    amount: "$1,815"
+  - item: "Bridgeway Academy Annual Fee:"
+    amount: "$1,715"
+    note: "(Plus $295 first-time registration fee in first year only)"
   - item: "Elevate Learning Center Annual Fees:"
     amount: "85,000 LE"
 

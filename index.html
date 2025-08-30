@@ -337,6 +337,14 @@
                             <span>${fee.item}</span>
                             <span class="fee-amount">${fee.amount}</span>
                         `;
+                        // Add note if it exists
+                        if (fee.note) {
+                            const noteElement = document.createElement('div');
+                            noteElement.className = 'fee-note';
+                            noteElement.style.cssText = 'font-size: 0.85rem; color: #888; margin-top: 0.25rem; font-style: italic;';
+                            noteElement.textContent = fee.note;
+                            feeElement.appendChild(noteElement);
+                        }
                         feesList.appendChild(feeElement);
                     });
 
