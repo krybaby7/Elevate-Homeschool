@@ -206,6 +206,57 @@ nav {
     box-shadow: 0 5px 15px rgba(143, 188, 143, 0.3);
 }
 
+/* Hero Buttons Layout */
+.hero-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.hero-cta i {
+    font-size: 1rem;
+}
+
+.hero-cta-secondary {
+    background: var(--accent-color);
+    color: white;
+}
+
+.hero-cta-secondary:hover {
+    background: #c49660;
+    box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
+}
+
+.hero-cta-tertiary {
+    background: var(--light-accent);
+    color: var(--primary-color);
+}
+
+.hero-cta-tertiary:hover {
+    background: #95c9cd;
+    box-shadow: 0 5px 15px rgba(168, 216, 220, 0.3);
+}
+
+.hero-cta-whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.hero-cta-whatsapp:hover {
+    background: #20b858;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
 /* Elevate Advantage Section */
 .advantage {
     padding: 50px 0;
@@ -840,5 +891,17 @@ footer {
 
     .logo-text {
         font-size: 1.1rem;
+    }
+
+    /* Hero buttons mobile layout */
+    .hero-buttons {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        max-width: 300px;
+    }
+
+    .hero-cta {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
     }
 }
