@@ -9,6 +9,7 @@
     --light-background: #E8E6E3;
     --warm-background: #F5E6D3;
     --warm-accent: #E8A87C;
+    --coral-salmon: #FF7F7F;
     
     /* Dynamic Gradient Colors - Using Brand Color Palette */
     --gradient-color-1: #E8F1FB; /* Light tinted primary blue */
@@ -187,7 +188,7 @@ nav {
 }
 
 .hero-cta {
-    background: var(--secondary-color);
+    background: var(--coral-salmon);
     color: var(--background-color);
     padding: 1rem 2.5rem;
     border: none;
@@ -201,9 +202,9 @@ nav {
 }
 
 .hero-cta:hover {
-    background: #7aa87a;
+    background: #E66B6B;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(143, 188, 143, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 127, 127, 0.3);
 }
 
 /* Hero Buttons Layout */
