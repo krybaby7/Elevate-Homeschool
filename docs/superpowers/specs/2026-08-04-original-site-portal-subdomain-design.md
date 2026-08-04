@@ -32,7 +32,8 @@ manifest, and proxy changes that are unnecessary for the requested outcome.
    certificate issuance.
 5. Verify the portal landing page, login page, founder login, and dashboard on
    the new hostname.
-6. Restore Netlify's apex and `www` records for
+6. Restore Netlify routing with the current supported manual records: apex
+   `ALIAS` to `apex-loadbalancer.netlify.com` and `www` `CNAME` to
    `elevate-homeschool.netlify.app`, replacing only their Hetzner A records.
 7. Verify the original website at both public hostnames.
 8. Add and publish the original website's `School Portal` link.

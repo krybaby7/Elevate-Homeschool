@@ -150,14 +150,18 @@ www.elevate-sharm.com A 62.238.98.72
 
 Do not delete the `portal` A record or any Google CNAME/MX/TXT record.
 
-- [ ] **Step 2: Restore the two Netlify web records**
+- [ ] **Step 2: Restore the two supported Netlify web records**
 
 Add exactly:
 
 ```text
-elevate-sharm.com     NETLIFY elevate-homeschool.netlify.app
-www.elevate-sharm.com NETLIFY elevate-homeschool.netlify.app
+elevate-sharm.com     ALIAS apex-loadbalancer.netlify.com
+www.elevate-sharm.com CNAME elevate-homeschool.netlify.app
 ```
+
+Netlify's dashboard does not expose its internal automatic `NETLIFY` type for
+manual creation. These are Netlify's documented manual equivalents and preserve
+the existing project/domain assignment.
 
 - [ ] **Step 3: Verify public DNS and original-site content**
 
