@@ -25,11 +25,8 @@ button { color:inherit; }
 .skip-link:focus { translate:0; }
 .site-header { position:sticky; z-index:50; top:0; border-bottom:1px solid rgba(26,71,148,.08); background:rgba(251,253,255,.9); backdrop-filter:blur(18px); }
 .site-nav { min-height:68px; display:flex; align-items:center; justify-content:space-between; }
-.brand { display:flex; align-items:center; gap:10px; color:var(--navy); text-decoration:none; font-size:1.05rem; font-weight:950; letter-spacing:-.055em; }
-.brand-mark { width:34px; height:24px; position:relative; flex:0 0 34px; }
-.brand-mark::before,.brand-mark::after { content:""; position:absolute; width:13px; height:13px; border-left:4px solid var(--blue); border-top:4px solid var(--blue); rotate:45deg; }
-.brand-mark::before { left:2px; top:7px; border-left-color:var(--aqua); border-top-color:var(--aqua); }
-.brand-mark::after { left:15px; top:3px; }
+.brand { display:flex; align-items:center; padding:5px 10px; border-radius:12px; background:var(--navy); text-decoration:none; }
+.header-logo { display:block; width:clamp(86px,9vw,104px); height:auto; }
 .nav-links { display:flex; align-items:center; gap:28px; color:#69778e; font-size:.86rem; font-weight:750; }
 .nav-links a { text-decoration:none; }
 .nav-links a:not(.portal-link):hover { color:var(--blue); }

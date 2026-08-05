@@ -82,11 +82,13 @@ test('styles include the approved palette, motion composition, mobile layout, an
   assert.match(css, /\.topic-bubble:focus-visible/);
 });
 
-test('header brand mark renders two peaks', async () => {
+test('header reuses the original Elevate logo from the footer', async () => {
+  const html = await read('index.html');
   const css = await read('assets/css/style.css');
-  assert.match(css, /\.brand-mark::before,\.brand-mark::after/);
-  assert.match(css, /\.brand-mark::before\s*\{[^}]*border-left-color:var\(--aqua\);[^}]*border-top-color:var\(--aqua\);/);
-  assert.match(css, /\.brand-mark::after\s*\{[^}]*left:15px;[^}]*top:3px;/);
+  assert.match(html, /<a class="brand"[^>]*aria-label="Elevate home"[^>]*>\s*<img class="header-logo" src="assets\/images\/Elevate%20Logo\.png" alt="">\s*<\/a>/);
+  assert.doesNotMatch(html, /class="brand-mark"/);
+  assert.match(css, /\.brand\s*\{[^}]*background:var\(--navy\);/);
+  assert.match(css, /\.header-logo\s*\{[^}]*width:clamp\(86px,9vw,104px\);[^}]*height:auto;/);
 });
 
 test('homepage presents the Bridgeway partnership accessibly', async () => {
