@@ -87,3 +87,15 @@ test('header brand mark renders two peaks', async () => {
   assert.match(css, /\.brand-mark::before,\.brand-mark::after/);
   assert.match(css, /\.brand-mark::after\s*\{[^}]*left:15px;[^}]*top:3px;/);
 });
+
+test('homepage presents the Bridgeway partnership accessibly', async () => {
+  const html = await read('index.html');
+  assert.match(html, /class="partner-strip"/);
+  assert.match(html, /href="https:\/\/homeschoolacademy\.com\/"/);
+  assert.match(html, /src="assets\/images\/bridgeway-academy\.svg"/);
+  assert.match(html, /alt="Bridgeway Academy"/);
+  assert.match(html, />Academic partner</);
+
+  const logo = await read('assets/images/bridgeway-academy.svg');
+  assert.match(logo, /<svg[^>]+viewBox="0 0 175 45"/);
+});
