@@ -85,6 +85,7 @@ test('styles include the approved palette, motion composition, mobile layout, an
 test('header brand mark renders two peaks', async () => {
   const css = await read('assets/css/style.css');
   assert.match(css, /\.brand-mark::before,\.brand-mark::after/);
+  assert.match(css, /\.brand-mark::before\s*\{[^}]*border-left-color:var\(--aqua\);[^}]*border-top-color:var\(--aqua\);/);
   assert.match(css, /\.brand-mark::after\s*\{[^}]*left:15px;[^}]*top:3px;/);
 });
 

@@ -28,7 +28,7 @@ button { color:inherit; }
 .brand { display:flex; align-items:center; gap:10px; color:var(--navy); text-decoration:none; font-size:1.05rem; font-weight:950; letter-spacing:-.055em; }
 .brand-mark { width:34px; height:24px; position:relative; flex:0 0 34px; }
 .brand-mark::before,.brand-mark::after { content:""; position:absolute; width:13px; height:13px; border-left:4px solid var(--blue); border-top:4px solid var(--blue); rotate:45deg; }
-.brand-mark::before { left:2px; top:7px; }
+.brand-mark::before { left:2px; top:7px; border-left-color:var(--aqua); border-top-color:var(--aqua); }
 .brand-mark::after { left:15px; top:3px; }
 .nav-links { display:flex; align-items:center; gap:28px; color:#69778e; font-size:.86rem; font-weight:750; }
 .nav-links a { text-decoration:none; }
