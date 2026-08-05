@@ -81,3 +81,9 @@ test('styles include the approved palette, motion composition, mobile layout, an
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /\.topic-bubble:focus-visible/);
 });
+
+test('header brand mark renders two peaks', async () => {
+  const css = await read('assets/css/style.css');
+  assert.match(css, /\.brand-mark::before,\.brand-mark::after/);
+  assert.match(css, /\.brand-mark::after\s*\{[^}]*left:15px;[^}]*top:3px;/);
+});
