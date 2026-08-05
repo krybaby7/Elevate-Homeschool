@@ -5,6 +5,18 @@
   NODE_VERSION = "18"
 
 [[redirects]]
+  from = "/extra-tuition"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/extra-tuition.html"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

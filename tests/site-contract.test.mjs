@@ -16,3 +16,16 @@ test('homepage content model and CMS use the real data directory', async () => {
   assert.match(cms, /file: "data\/homepage\.yml"/);
   assert.doesNotMatch(cms, /file: "_data\//);
 });
+
+test('extra tuition routes redirect before the catch-all', async () => {
+  const config = await read('netlify.toml');
+  const shortRoute = config.indexOf('from = "/extra-tuition"');
+  const htmlRoute = config.indexOf('from = "/extra-tuition.html"');
+  const catchAll = config.indexOf('from = "/*"');
+
+  assert.ok(shortRoute >= 0);
+  assert.ok(htmlRoute >= 0);
+  assert.ok(shortRoute < catchAll);
+  assert.ok(htmlRoute < catchAll);
+  assert.match(config, /status = 302[\s\S]*force = true/);
+});
