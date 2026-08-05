@@ -1,166 +1,296 @@
-// Smooth scrolling for navigation links
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle functionality
-    initializeMobileMenu();
+import { createBubbleMotion } from './bubble-motion.mjs';
 
-    // Get all links that have href starting with #
-    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-    
-    smoothScrollLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                // Calculate offset to account for fixed header
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight - 20;
-                
-                // Smooth scroll to target
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+const topicColours = {
+  interests: '#2f68df',
+  curriculum: '#ff8d72',
+  guidance: '#42bfd1',
+  future: '#d7ad42',
+};
+
+let topicContent = {
+  interests: {
+    title: 'Start with the student',
+    text: 'We begin with your child’s strengths, interests and future goals.',
+  },
+  curriculum: {
+    title: 'Shape the right programme',
+    text: 'A flexible American curriculum becomes a clear, personal learning plan.',
+  },
+  guidance: {
+    title: 'Never just a number',
+    text: 'Small groups and close mentoring keep every student seen and supported.',
+  },
+  future: {
+    title: 'Move forward with confidence',
+    text: 'Diploma credits, SAT focus and university planning stay connected. We help every student work toward a strong GPA.',
+  },
+};
+
+function initMenu() {
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('.nav-links');
+
+  if (!toggle || !links) {
+    return;
+  }
+
+  const setOpen = (open) => {
+    links.classList.toggle('open', open);
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  };
+
+  toggle.addEventListener('click', () => {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  links.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.site-nav')) {
+      setOpen(false);
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 820) {
+      setOpen(false);
+    }
+  });
+}
+
+function initTopicDisclosures() {
+  const buttons = [...document.querySelectorAll('.topic-bubble')];
+  const popover = document.querySelector('#topic-popover');
+  const title = document.querySelector('#popover-title');
+  const text = document.querySelector('#popover-text');
+  const accent = popover?.querySelector('.popover-accent');
+  const closeButton = popover?.querySelector('.popover-close');
+  let activeKey = null;
+  let activeButton = null;
+
+  if (!popover || !title || !text || !accent) {
+    return;
+  }
+
+  const close = ({ returnFocus = false } = {}) => {
+    const previousButton = activeButton;
+    activeKey = null;
+    activeButton = null;
+    buttons.forEach((button) => {
+      button.classList.remove('active');
+      button.style.opacity = '1';
+      button.setAttribute('aria-expanded', 'false');
+    });
+    popover.classList.remove('open');
+    popover.setAttribute('aria-hidden', 'true');
+    if (returnFocus) {
+      previousButton?.focus();
+    }
+  };
+
+  buttons.forEach((button) => {
+    const key = button.dataset.topic;
+    if (key && button.dataset.title && button.dataset.text) {
+      topicContent[key] = { title: button.dataset.title, text: button.dataset.text };
+    }
+
+    button.addEventListener('click', () => {
+      if (!key || !topicContent[key]) {
+        return;
+      }
+      if (activeKey === key) {
+        close();
+        return;
+      }
+
+      activeKey = key;
+      activeButton = button;
+      buttons.forEach((item) => {
+        const selected = item === button;
+        item.classList.toggle('active', selected);
+        item.style.opacity = selected ? '1' : '.62';
+        item.setAttribute('aria-expanded', String(selected));
+      });
+      title.textContent = topicContent[key].title;
+      text.textContent = topicContent[key].text;
+      accent.style.background = topicColours[key];
+      popover.classList.add('open');
+      popover.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  closeButton?.addEventListener('click', () => close({ returnFocus: true }));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && activeKey) {
+      close({ returnFocus: true });
+    }
+  });
+}
+
+function initProcessDisclosures() {
+  const steps = [...document.querySelectorAll('.process-step')];
+  const detail = document.querySelector('#process-detail');
+
+  if (!detail) {
+    return;
+  }
+
+  steps.forEach((step) => {
+    step.addEventListener('click', () => {
+      const opening = step.getAttribute('aria-expanded') !== 'true';
+      steps.forEach((item) => item.setAttribute('aria-expanded', 'false'));
+      step.setAttribute('aria-expanded', String(opening));
+      detail.textContent = opening ? step.dataset.detail : '';
+    });
+  });
+}
+
+function initMotion() {
+  const cleanup = createBubbleMotion(
+    document.querySelector('.hero'),
+    [...document.querySelectorAll('.topic-bubble, .bubble-core')],
+    {
+      reducedMotion:
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        !window.matchMedia('(pointer: fine)').matches,
+    },
+  );
+  window.addEventListener('pagehide', cleanup, { once: true });
+}
+
+const setText = (selector, value) => {
+  const element = document.querySelector(selector);
+  if (element && value) {
+    element.textContent = value;
+  }
+};
+
+async function hydrateContent() {
+  try {
+    const response = await fetch('data/homepage.yml', { cache: 'no-cache' });
+    if (!response.ok || !window.jsyaml) {
+      throw new Error(`Homepage content unavailable (${response.status})`);
+    }
+
+    const data = window.jsyaml.load(await response.text());
+    document.title = data.seo?.title || document.title;
+    if (data.seo?.description) {
+      document.querySelector('meta[name="description"]')?.setAttribute('content', data.seo.description);
+    }
+
+    setText('#hero-kicker', data.hero?.kicker);
+    setText('#hero-support', data.hero?.supporting);
+    setText('#hero-primary-label', data.hero?.primary_cta);
+    setText('#hero-secondary-label', data.hero?.secondary_cta);
+
+    const heading = document.querySelector('#hero-heading');
+    if (heading && data.hero?.heading) {
+      const emphasis = 'your child.';
+      const start = data.hero.heading.endsWith(emphasis)
+        ? data.hero.heading.slice(0, -emphasis.length)
+        : data.hero.heading;
+      heading.replaceChildren(document.createTextNode(start));
+      if (start !== data.hero.heading) {
+        const span = document.createElement('span');
+        span.textContent = emphasis;
+        heading.append(span);
+      }
+    }
+
+    document.querySelectorAll('#proof-points span').forEach((item, index) => {
+      if (data.hero?.proof_points?.[index]) {
+        item.textContent = data.hero.proof_points[index];
+      }
     });
 
-    // Dynamic Gradient Background System
-    initializeDynamicGradient();
+    data.hero?.topics?.forEach((topic) => {
+      const button = document.querySelector(`[data-topic="${topic.key}"]`);
+      if (button) {
+        button.textContent = topic.label;
+        button.dataset.title = topic.title;
+        button.dataset.text = topic.text;
+      }
+      topicContent[topic.key] = { title: topic.title, text: topic.text };
+    });
+
+    setText('.benefits .section-eyebrow', data.benefits?.eyebrow);
+    setText('.benefits h2', data.benefits?.heading);
+    const benefits = document.querySelectorAll('.benefit');
+    data.benefits?.items?.forEach((item, index) => {
+      benefits[index]?.querySelector('h3')?.replaceChildren(item.title);
+      benefits[index]?.querySelector('p')?.replaceChildren(item.text);
+    });
+
+    setText('.process .section-eyebrow', data.process?.eyebrow);
+    setText('.process h2', data.process?.heading);
+    const processSteps = document.querySelectorAll('.process-step');
+    data.process?.steps?.forEach((item, index) => {
+      processSteps[index]?.querySelector('strong')?.replaceChildren(item.title);
+      if (processSteps[index]) {
+        processSteps[index].dataset.detail = item.text;
+      }
+    });
+
+    setText('.visit .section-eyebrow', data.visit?.eyebrow);
+    setText('.visit h2', data.visit?.heading);
+    setText('.visit-layout > div > p:last-child', data.visit?.text);
+    setText('.visit-form h3', data.visit?.form_heading);
+    setText('#visit-submit-label', data.visit?.submit_text);
+    setText('#tuition-guide-label', data.visit?.tuition_guide_text);
+  } catch (error) {
+    console.warn('Homepage content fallback is active.', error);
+  }
+}
+
+function initVisitForm() {
+  const form = document.querySelector('.visit-form');
+  const status = form?.querySelector('.form-status');
+  const submit = form?.querySelector('button[type="submit"]');
+
+  if (!form || !status || !submit) {
+    return;
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) {
+      return;
+    }
+
+    submit.disabled = true;
+    status.textContent = 'Sending your request…';
+    status.className = 'form-status full sending';
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      });
+      if (!response.ok) {
+        throw new Error(`Form submission failed (${response.status})`);
+      }
+      form.reset();
+      status.textContent = 'Thank you. We will contact you to arrange your private visit.';
+      status.className = 'form-status full success';
+    } catch (error) {
+      console.error(error);
+      status.textContent = 'We could not send your request. Please try again or contact us directly.';
+      status.className = 'form-status full error';
+    } finally {
+      submit.disabled = false;
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu();
+  initTopicDisclosures();
+  initProcessDisclosures();
+  initMotion();
+  initVisitForm();
+  hydrateContent();
 });
-
-function initializeDynamicGradient() {
-    // Brand color palette for gradient progression
-    const colorStops = [
-        { position: 0.0, colors: ['#FAFAFA', '#F5E6D3', '#E8E6E3'] }, // Light tones
-        { position: 0.2, colors: ['#F5E6D3', '#E8A87C', '#D4A574'] }, // Warm beige to gold
-        { position: 0.4, colors: ['#D4A574', '#8FBC8F', '#A8D8DC'] }, // Gold to sage to light blue
-        { position: 0.6, colors: ['#8FBC8F', '#A8D8DC', '#7aa87a'] }, // Sage to light blue blend
-        { position: 0.8, colors: ['#A8D8DC', '#5B8FB0', '#2B5A9C'] }, // Light blue to deeper blue
-        { position: 1.0, colors: ['#5B8FB0', '#2B5A9C', '#1a4480'] }  // Deep blue tones
-    ];
-
-    let ticking = false;
-
-    function updateGradient() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = Math.max(0, Math.min(1, scrollTop / scrollHeight));
-
-        // Find the two color stops to interpolate between
-        let lowerStop = colorStops[0];
-        let upperStop = colorStops[colorStops.length - 1];
-
-        for (let i = 0; i < colorStops.length - 1; i++) {
-            if (scrollPercent >= colorStops[i].position && scrollPercent <= colorStops[i + 1].position) {
-                lowerStop = colorStops[i];
-                upperStop = colorStops[i + 1];
-                break;
-            }
-        }
-
-        // Calculate interpolation factor between the two stops
-        const range = upperStop.position - lowerStop.position;
-        const factor = range === 0 ? 0 : (scrollPercent - lowerStop.position) / range;
-
-        // Interpolate between the three gradient colors
-        const interpolatedColors = [
-            interpolateColor(lowerStop.colors[0], upperStop.colors[0], factor),
-            interpolateColor(lowerStop.colors[1], upperStop.colors[1], factor),
-            interpolateColor(lowerStop.colors[2], upperStop.colors[2], factor)
-        ];
-
-        // Update CSS custom properties
-        document.documentElement.style.setProperty('--gradient-color-1', interpolatedColors[0]);
-        document.documentElement.style.setProperty('--gradient-color-2', interpolatedColors[1]);
-        document.documentElement.style.setProperty('--gradient-color-3', interpolatedColors[2]);
-
-        ticking = false;
-    }
-
-    function interpolateColor(color1, color2, factor) {
-        // Convert hex to RGB
-        const rgb1 = hexToRgb(color1);
-        const rgb2 = hexToRgb(color2);
-
-        // Interpolate each channel
-        const r = Math.round(rgb1.r + (rgb2.r - rgb1.r) * factor);
-        const g = Math.round(rgb1.g + (rgb2.g - rgb1.g) * factor);
-        const b = Math.round(rgb1.b + (rgb2.b - rgb1.b) * factor);
-
-        // Convert back to hex
-        return rgbToHex(r, g, b);
-    }
-
-    function hexToRgb(hex) {
-        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-            r: parseInt(result[1], 16),
-            g: parseInt(result[2], 16),
-            b: parseInt(result[3], 16)
-        } : null;
-    }
-
-    function rgbToHex(r, g, b) {
-        return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-    }
-
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(updateGradient);
-            ticking = true;
-        }
-    }
-
-    // Listen for scroll events with throttling
-    window.addEventListener('scroll', requestTick, { passive: true });
-    
-    // Initial gradient update
-    updateGradient();
-}
-
-function initializeMobileMenu() {
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const navLinks = document.getElementById('nav-links');
-    
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', function() {
-            // Toggle active class on button for animation
-            mobileMenuBtn.classList.toggle('active');
-            
-            // Toggle active class on nav links to show/hide menu
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on navigation links
-        const navLinkItems = navLinks.querySelectorAll('a');
-        navLinkItems.forEach(link => {
-            link.addEventListener('click', function() {
-                // Close the mobile menu
-                mobileMenuBtn.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInsideNav = navLinks.contains(event.target);
-            const isClickOnButton = mobileMenuBtn.contains(event.target);
-            
-            if (!isClickInsideNav && !isClickOnButton && navLinks.classList.contains('active')) {
-                mobileMenuBtn.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
-
-        // Close mobile menu on window resize if screen becomes large
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-                mobileMenuBtn.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
-    }
-}

@@ -60,3 +60,13 @@ test('bubble disclosures expose keyboard and assistive-technology hooks', async 
   assert.match(html, /id="topic-popover"[^>]+aria-hidden="true"/);
   assert.match(html, /aria-label="Close explanation"/);
 });
+
+test('homepage script includes disclosures, YAML fallback handling, and Netlify submission states', async () => {
+  const script = await read('assets/js/main.js');
+  assert.match(script, /createBubbleMotion/);
+  assert.match(script, /prefers-reduced-motion/);
+  assert.match(script, /event\.key === 'Escape'/);
+  assert.match(script, /fetch\('data\/homepage\.yml'/);
+  assert.match(script, /new URLSearchParams\(new FormData\(form\)\)/);
+  assert.match(script, /We could not send your request/);
+});
