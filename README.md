@@ -1,163 +1,57 @@
-# Elevate Learning Center Website
+# Elevate Sharm Website
 
-A modern, fully editable website for Elevate Learning Center with Netlify CMS integration.
+The public website for [elevate-sharm.com](https://elevate-sharm.com), hosted on Netlify and deployed from the `main` branch of this repository.
 
-## 🚀 Features
+## Technology
 
-- **Fully Editable Content**: Everything can be edited through Netlify CMS
-- **Responsive Design**: Works perfectly on all devices
-- **Smooth Scrolling Navigation**: Enhanced user experience
-- **Google Maps Integration**: Interactive location display
-- **Form Handling**: Contact form with Netlify Forms
-- **Color Theme Management**: Easy color scheme customization
-- **SEO Optimized**: Meta tags and structured content
+- Static HTML, CSS, and JavaScript
+- Netlify hosting, redirects, and form handling
+- Decap CMS under `/admin/`
+- YAML content in `data/`
 
-## 📁 Project Structure
+## Project structure
 
-```
-elevate-website/
-├── index.html              # Main website file
-├── admin/                  # Netlify CMS admin interface
-│   ├── index.html         # CMS admin page
-│   └── config.yml         # CMS configuration
-├── _data/                 # Content data files (editable via CMS)
-│   ├── site.yml          # Site settings & colors
-│   ├── hero.yml          # Hero section content
-│   ├── advantages.yml    # Advantage cards
-│   ├── program.yml       # Program details & pricing
-│   ├── registration.yml  # Registration form
-│   └── footer.yml        # Footer content & location
-├── assets/               # Static assets
-│   ├── css/style.css    # Website styling
-│   └── js/main.js       # JavaScript functionality
-├── netlify.toml         # Netlify deployment config
-└── README.md           # This file
+```text
+index.html                    Public homepage
+extra-tuition.html            Legacy page, currently redirected
+assets/css/style.css          Site styles and responsive layouts
+assets/js/main.js             Navigation, disclosures, and form behavior
+assets/js/bubble-motion.mjs   Cursor-attraction motion
+data/homepage.yml             Editable homepage copy
+data/footer.yml               Editable footer details
+admin/config.yml              CMS content configuration
+netlify.toml                  Netlify redirects and deployment settings
+tests/                        Node contract and motion tests
 ```
 
-## 🌐 Deployment Instructions
+## Local preview
 
-### Step 1: Deploy to Netlify
+From the repository root:
 
-1. **Zip the website folder**:
-   - Select all files inside the `elevate-website` folder
-   - Create a ZIP file (e.g., `elevate-website.zip`)
+```powershell
+python -m http.server 4173
+```
 
-2. **Deploy to Netlify**:
-   - Go to [netlify.com](https://netlify.com)
-   - Sign up or log in
-   - Drag and drop your ZIP file to the deploy area
-   - Wait for deployment to complete
+Open `http://localhost:4173/`. A web server is required because the page loads YAML content and JavaScript modules.
 
-### Step 2: Enable Netlify Identity
+## Tests
 
-1. **In your Netlify dashboard**:
-   - Go to **Site settings** → **Identity**
-   - Click **Enable Identity**
+Run the complete test suite with:
 
-2. **Configure Identity settings**:
-   - **Registration**: Set to "Invite only" (recommended)
-   - **External providers**: Enable if you want Google/GitHub login
-   - **Git Gateway**: Enable this for CMS functionality
+```powershell
+node --test tests/site-contract.test.mjs tests/bubble-motion.test.mjs
+```
 
-### Step 3: Set up CMS Access
+## Publishing
 
-1. **Invite yourself as an admin**:
-   - Go to **Identity** tab in Netlify dashboard
-   - Click **Invite users**
-   - Enter your email address
-   - Check your email and accept the invitation
+Netlify publishes the production site when changes reach the repository's `main` branch. The homepage should not be uploaded as a ZIP because that bypasses the normal Git history and deployment workflow.
 
-2. **Access the CMS**:
-   - Go to `your-site-name.netlify.app/admin/`
-   - Log in with your credentials
-   - Start editing your content!
+The private campus visit form is named `campus-visit`. Netlify detects it from `index.html`, stores submissions in the site's Forms area, and can send notifications configured in Netlify.
 
-## ✏️ Editing Content
+## Content editing
 
-### Available Sections in CMS:
+The homepage and footer copy are configured in `data/homepage.yml` and `data/footer.yml`. Their matching CMS fields are in `admin/config.yml`. Structural, style, animation, and behavior changes still require code edits.
 
-1. **General Site Settings**
-   - Site title and logo
-   - Meta description and keywords
-   - Color scheme (change website colors)
+## AP/SAT extra tuition page
 
-2. **Hero Section**
-   - Main headline and subtitle
-   - Call-to-action button
-
-3. **Advantages Section**
-   - Section title
-   - Add/remove/edit advantage cards
-   - Icons, titles, and descriptions
-
-4. **Program Section**
-   - Program details and description
-   - Features list (add/remove items)
-   - Pricing information
-   - Call-to-action button
-
-5. **Registration Section**
-   - Form title and subtitle
-   - Form fields (modify labels, types, options)
-   - Submit button text and disclaimer
-
-6. **Footer**
-   - Contact information
-   - Partnership details
-   - Location text and map coordinates
-
-### Making Changes:
-
-1. Log into `/admin/` on your website
-2. Select the section you want to edit
-3. Make your changes
-4. Click **Save** 
-5. Click **Publish** to make changes live
-6. Changes appear on your website immediately!
-
-## 🎨 Customizing Colors
-
-You can change the entire website color scheme through the CMS:
-
-1. Go to **Site Settings** → **General Site Settings**
-2. Expand **Color Scheme**
-3. Use color pickers to adjust:
-   - Primary Color (header, titles)
-   - Secondary Color (buttons, accents)
-   - Accent Color (highlights)
-   - Background colors
-   - Text colors
-
-## 📍 Updating Location
-
-To change the map location:
-
-1. Go to **Footer** settings in CMS
-2. Scroll to **Location Settings**
-3. Update **Latitude** and **Longitude**
-4. Adjust **Zoom Level** (1-20)
-
-## 📝 Form Submissions
-
-Contact form submissions are automatically handled by Netlify:
-
-1. Go to your Netlify dashboard
-2. Click **Forms** tab
-3. View all form submissions
-4. Set up email notifications if desired
-
-## 🔧 Technical Details
-
-- **Framework**: Pure HTML/CSS/JavaScript
-- **CMS**: Netlify CMS
-- **Hosting**: Netlify
-- **Forms**: Netlify Forms
-- **Authentication**: Netlify Identity
-
-## 📞 Support
-
-For any technical issues or questions about editing content, the CMS interface provides helpful tooltips and guidance for each field.
-
-## 🔄 Updates
-
-All content updates are made through the CMS interface - no coding required! The website automatically rebuilds when you publish changes.
+The `/extra-tuition` and `/extra-tuition.html` routes are temporarily redirected to the homepage in `netlify.toml`. To restore that service later, remove those two forced redirect blocks and review `extra-tuition.html` before publishing.
