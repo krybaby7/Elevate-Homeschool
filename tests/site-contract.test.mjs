@@ -70,3 +70,14 @@ test('homepage script includes disclosures, YAML fallback handling, and Netlify 
   assert.match(script, /new URLSearchParams\(new FormData\(form\)\)/);
   assert.match(script, /We could not send your request/);
 });
+
+test('styles include the approved palette, motion composition, mobile layout, and reduced motion', async () => {
+  const css = await read('assets/css/style.css');
+  for (const token of ['--navy: #122a55', '--blue: #2f68df', '--coral: #ffb79b', '--aqua: #82dfe9', '--gold: #f0cb6a']) {
+    assert.match(css, new RegExp(token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  }
+  assert.match(css, /translate:\s*var\(--bubble-x\) var\(--bubble-y\)/);
+  assert.match(css, /@media \(max-width: 820px\)/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(css, /\.topic-bubble:focus-visible/);
+});
